@@ -305,31 +305,52 @@
                         <div class="relative w-full aspect-video bg-[#0b0f19] rounded-lg border border-[#223154] overflow-hidden flex items-center justify-center">
                             <!-- Screen Mock Image (Minecraft/Youtube overlay) -->
                             <div class="absolute inset-0 transition-opacity duration-300" id="mockup-screen-game">
-                                <div class="w-full h-full flex flex-col justify-end p-4 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900/90 to-[#0b0f19]">
-                                    <!-- Simulated Game Screen Elements -->
-                                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm border border-white/10 rounded px-2.5 py-1 text-[10px] text-[#f3f4f6] font-mono">
-                                        Vortice DXGI Capturer • 60 FPS • 1080p
+                                <div class="w-full h-full flex flex-col bg-gradient-to-br from-[#1b2747] via-[#101a33] to-[#0b0f19]">
+                                    <!-- Top capture badges -->
+                                    <div class="flex items-center justify-between p-3">
+                                        <span class="bg-black/60 backdrop-blur-sm border border-white/10 rounded px-2.5 py-1 text-[10px] text-[#f3f4f6] font-mono">DXGI • 1080p • 60 FPS</span>
+                                        <span class="inline-flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 rounded px-2.5 py-1 text-[10px] font-semibold">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 38 ms
+                                        </span>
                                     </div>
-                                    <div class="absolute top-4 right-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded px-2.5 py-1 text-[10px] font-semibold">
-                                        Flux Actif
-                                    </div>
-                                    
-                                    <!-- Minecraft Simulated graphics -->
-                                    <div class="w-full h-2/3 flex items-center justify-center relative">
-                                        <!-- Simulated Game Scene -->
-                                        <svg class="w-16 h-16 text-[#9ca3af]/40" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"></path>
-                                        </svg>
-                                    </div>
-                                    
-                                    <div class="flex items-center justify-between z-10">
-                                        <div class="flex flex-col">
-                                            <span class="text-xs text-white font-bold">Minecraft.exe</span>
-                                            <span class="text-[10px] text-[#9ca3af]">Activité principale détectée</span>
+
+                                    <!-- Center: mock browser window being streamed -->
+                                    <div class="flex-1 px-4 flex items-center justify-center">
+                                        <div class="w-full max-w-[88%] bg-[#0b0f19]/70 border border-[#223154] rounded-lg overflow-hidden shadow-lg">
+                                            <div class="flex items-center gap-2 px-3 py-1.5 bg-[#131b2e]/80 border-b border-[#223154]">
+                                                <span class="w-2 h-2 rounded-full bg-[#223154]"></span>
+                                                <span class="w-2 h-2 rounded-full bg-[#223154]"></span>
+                                                <span class="flex-1 truncate text-[9px] font-mono text-[#9ca3af] bg-[#0b0f19] rounded px-2 py-0.5">youtube.com/watch</span>
+                                            </div>
+                                            <div class="flex items-center gap-3 px-3 py-3">
+                                                <span class="flex items-center justify-center w-9 h-9 rounded-md bg-[#38bdf8]/10 text-[#38bdf8] shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"></path></svg>
+                                                </span>
+                                                <div class="flex flex-col gap-1.5 flex-1 min-w-0">
+                                                    <span class="h-1.5 w-3/4 rounded-full bg-[#223154]"></span>
+                                                    <span class="h-1.5 w-1/2 rounded-full bg-[#223154]/70"></span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex items-center gap-1">
-                                            <span class="w-2 h-2 rounded-full bg-[#38bdf8]"></span>
-                                            <span class="text-[10px] font-medium text-[#38bdf8]">Moniteur 1</span>
+                                    </div>
+
+                                    <!-- Bottom bar: active window + live audio waveform -->
+                                    <div class="flex items-center justify-between gap-3 px-3 py-2.5 bg-black/40 border-t border-white/5">
+                                        <div class="flex items-center gap-2 min-w-0">
+                                            <span class="w-2 h-2 rounded-full bg-[#38bdf8] shrink-0"></span>
+                                            <span class="text-[10px] text-white font-medium truncate">chrome.exe — Moniteur 1</span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5 shrink-0">
+                                            <svg class="w-3.5 h-3.5 text-[#34d399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"></path></svg>
+                                            <div class="flex items-end gap-[2px] h-3.5" aria-hidden="true">
+                                                <span class="audio-bar"></span>
+                                                <span class="audio-bar"></span>
+                                                <span class="audio-bar"></span>
+                                                <span class="audio-bar"></span>
+                                                <span class="audio-bar"></span>
+                                                <span class="audio-bar"></span>
+                                            </div>
+                                            <span class="text-[9px] font-mono text-[#9ca3af]">Opus 64k</span>
                                         </div>
                                     </div>
                                 </div>
@@ -371,30 +392,47 @@
                             </div>
                         </div>
 
-                        <!-- Console Active Process Block List Simulator -->
+                        <!-- Live protection feed (v1.2.0) -->
                         <div class="bg-[#0b0f19] p-4 rounded-xl border border-[#223154]">
                             <div class="flex items-center justify-between mb-3 border-b border-[#223154]/50 pb-2">
-                                <span class="text-xs font-bold text-white uppercase tracking-wider">Processus Actifs</span>
-                                <span class="text-[10px] font-mono text-[#9ca3af]">2 détectés</span>
+                                <span class="text-xs font-bold text-white uppercase tracking-wider">Protection en direct</span>
+                                <span class="inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 3 menaces bloquées
+                                </span>
                             </div>
-                            <div class="flex flex-col gap-2">
-                                <div class="flex items-center justify-between text-xs py-1 border-b border-[#223154]/20">
-                                    <div class="flex flex-col">
-                                        <span class="font-bold text-white">Minecraft.exe</span>
-                                        <span class="text-[10px] text-[#9ca3af] font-mono">PID: 9024 • RAM: 1.2 Go</span>
+                            <div class="flex flex-col gap-3">
+                                <!-- Site filtré -->
+                                <div class="flex items-center gap-3">
+                                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-red-500/15 text-red-400 shrink-0" aria-hidden="true">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    </span>
+                                    <div class="flex flex-col flex-1 min-w-0">
+                                        <span class="text-xs font-semibold text-white">Site pour adultes bloqué</span>
+                                        <span class="text-[10px] text-[#9ca3af] font-mono truncate">••••••••••.com — liste communautaire</span>
                                     </div>
-                                    <button class="px-3 py-1 bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white rounded border border-red-500/30 text-[10px] font-bold transition-all cursor-pointer" id="mockup-btn-kill1">
-                                        Terminer
-                                    </button>
+                                    <span class="px-2 py-0.5 rounded bg-red-500/15 text-red-400 border border-red-500/30 text-[9px] font-bold uppercase tracking-wide shrink-0">Filtré</span>
                                 </div>
-                                <div class="flex items-center justify-between text-xs py-1">
-                                    <div class="flex flex-col">
-                                        <span class="font-bold text-white">Discord.exe</span>
-                                        <span class="text-[10px] text-[#9ca3af] font-mono">PID: 5120 • RAM: 320 Mo</span>
+                                <!-- VPN tué -->
+                                <div class="flex items-center gap-3">
+                                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-orange-500/15 text-orange-400 shrink-0" aria-hidden="true">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>
+                                    </span>
+                                    <div class="flex flex-col flex-1 min-w-0">
+                                        <span class="text-xs font-semibold text-white">VPN bloqué</span>
+                                        <span class="text-[10px] text-[#9ca3af] font-mono truncate">nordvpn.exe — processus fermé</span>
                                     </div>
-                                    <button class="px-3 py-1 bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white rounded border border-red-500/30 text-[10px] font-bold transition-all cursor-pointer" id="mockup-btn-kill2">
-                                        Terminer
-                                    </button>
+                                    <span class="px-2 py-0.5 rounded bg-orange-500/15 text-orange-400 border border-orange-500/30 text-[9px] font-bold uppercase tracking-wide shrink-0">Tué</span>
+                                </div>
+                                <!-- DoH redirigé -->
+                                <div class="flex items-center gap-3">
+                                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-[#38bdf8]/15 text-[#38bdf8] shrink-0" aria-hidden="true">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+                                    </span>
+                                    <div class="flex flex-col flex-1 min-w-0">
+                                        <span class="text-xs font-semibold text-white">DNS sécurisé neutralisé</span>
+                                        <span class="text-[10px] text-[#9ca3af] font-mono truncate">dns.google → 127.0.0.1</span>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30 text-[9px] font-bold uppercase tracking-wide shrink-0">Anti-DoH</span>
                                 </div>
                             </div>
                         </div>
