@@ -11,4 +11,10 @@
       <image:title>controleparental.icu — contrôle parental Windows</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://controleparental.icu/confidentialite.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
