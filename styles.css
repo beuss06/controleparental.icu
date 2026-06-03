@@ -1,0 +1,149 @@
+/* styles.css */
+
+/* Global Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+    background: #223154;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
+/* Custom Selection Highlight */
+::selection {
+    background: rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0f19;
+    color: #f3f4f6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Floating Navigation Scroll State */
+.nav-scrolled {
+    background-color: rgba(11, 15, 25, 0.85) !important;
+    border-color: rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 15px rgba(56, 189, 248, 0.1);
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: rgba(19, 27, 46, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(34, 49, 84, 0.6);
+}
+
+/* Moving Background Glow Orbs */
+@keyframes floatOrb1 {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes floatOrb2 {
+    0% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(-40px, 40px) scale(1.15); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+body > div:nth-child(1) {
+    animation: floatOrb1 20s infinite ease-in-out;
+}
+
+body > div:nth-child(2) {
+    animation: floatOrb2 25s infinite ease-in-out;
+}
+
+/* FAQ Accordion Transitions */
+.faq-content {
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding-bottom 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-item.active {
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 4px 20px -5px rgba(56, 189, 248, 0.1);
+}
+
+.faq-item.active .faq-content {
+    opacity: 1;
+    padding-bottom: 1.25rem;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: #38bdf8;
+}
+
+/* Glow Borders on Hover */
+.glow-on-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-on-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(56, 189, 248, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.glow-on-hover:hover::after {
+    opacity: 1;
+}
+
+/* Micro-animations and scale states */
+.feature-card-zoom {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card-zoom:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.05);
+}
+
+/* Entry fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-load {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom interactive mockup control classes */
+#mockup-screen-game {
+    transition: opacity 0.4s ease-in-out;
+}
+
+#mockup-screen-locked {
+    transition: opacity 0.4s ease-in-out;
+}

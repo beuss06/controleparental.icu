@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>controleparental.icu - Gardez un œil protecteur sur vos enfants</title>
+    <meta name="description" content="Solution de contrôle parental ultra-rapide et furtive. Streaming d'écran DXGI, blocage WMI et console web mobile.">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0b0f19] text-[#f3f4f6] font-sans antialiased min-h-screen relative overflow-x-hidden">
+
+    <!-- background glow effects -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-[#38bdf8]/10 to-transparent blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute top-[40%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-br from-[#34d399]/5 to-transparent blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tr from-[#3b82f6]/5 to-transparent blur-[150px] pointer-events-none z-0"></div>
+
+    <!-- Floating Navbar -->
+    <header class="fixed top-4 left-4 right-4 z-50">
+        <nav class="max-w-7xl mx-auto backdrop-blur-md bg-[#131b2e]/75 border border-[#223154]/60 rounded-full px-6 py-3 flex items-center justify-between shadow-lg transition-all duration-300" id="navbar">
+            <a href="#" class="flex items-center gap-2 group focus:outline-none">
+                <!-- ICU Logo SVG -->
+                <svg class="w-8 h-8 text-[#38bdf8] transition-transform duration-300 group-hover:scale-105" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#34d399"/>
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                        </filter>
+                    </defs>
+                    <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)" filter="url(#glow)"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
+                </svg>
+                <span class="font-heading text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-[#f3f4f6] to-[#9ca3af] bg-clip-text text-transparent group-hover:text-white transition-colors">
+                    controleparental<span class="text-[#38bdf8]">.icu</span>
+                </span>
+            </a>
+
+            <!-- Nav links (Desktop) -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" class="text-sm font-medium text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer">Fonctionnalités</a>
+                <a href="#console-preview" class="text-sm font-medium text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer">Console Web</a>
+                <a href="#testimonials" class="text-sm font-medium text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer">Avis</a>
+                <a href="#faq" class="text-sm font-medium text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer">FAQ</a>
+            </div>
+
+            <!-- Header CTA -->
+            <div class="flex items-center gap-4">
+                <a href="../dist/ParentalGuard.Setup.exe" class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-full hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all duration-300 transform active:scale-95 cursor-pointer">
+                    Télécharger
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden flex flex-col justify-between w-6 h-4 text-white focus:outline-none cursor-pointer" id="menu-btn" aria-label="Menu principal">
+                    <span class="w-full h-0.5 bg-[#f3f4f6] transition-all duration-300 origin-left" id="btn-line1"></span>
+                    <span class="w-full h-0.5 bg-[#f3f4f6] transition-all duration-300" id="btn-line2"></span>
+                    <span class="w-full h-0.5 bg-[#f3f4f6] transition-all duration-300 origin-left" id="btn-line3"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div class="hidden md:hidden absolute top-16 left-4 right-4 bg-[#131b2e] border border-[#223154] rounded-2xl p-6 shadow-2xl transition-all duration-300 flex flex-col gap-4 mt-2 z-45" id="mobile-menu">
+            <a href="#features" class="text-base font-medium text-[#9ca3af] hover:text-[#38bdf8] py-2 border-b border-[#223154]/50 cursor-pointer">Fonctionnalités</a>
+            <a href="#console-preview" class="text-base font-medium text-[#9ca3af] hover:text-[#38bdf8] py-2 border-b border-[#223154]/50 cursor-pointer">Console Web</a>
+            <a href="#testimonials" class="text-base font-medium text-[#9ca3af] hover:text-[#38bdf8] py-2 border-b border-[#223154]/50 cursor-pointer">Avis</a>
+            <a href="#faq" class="text-base font-medium text-[#9ca3af] hover:text-[#38bdf8] py-2 border-b border-[#223154]/50 cursor-pointer">FAQ</a>
+            <a href="../dist/ParentalGuard.Setup.exe" class="w-full text-center py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-xl hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all cursor-pointer">
+                Télécharger ParentalGuard
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-7xl mx-auto px-6 z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-6 flex flex-col gap-6 text-center lg:text-left">
+                <!-- Tagline -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#131b2e] border border-[#223154] rounded-full self-center lg:self-start w-fit">
+                    <span class="w-2 h-2 rounded-full bg-[#34d399] animate-pulse"></span>
+                    <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider">Solution Parental Guard - ICU</span>
+                </div>
+                <!-- Headline -->
+                <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                    Nous voyons pour vous : Gardez un <span class="bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent">œil protecteur</span>
+                </h1>
+                <!-- Subheadline -->
+                <p class="text-base sm:text-lg text-[#9ca3af] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Découvrez <strong>controleparental.icu</strong> (ICU - <em>I See You</em>), l'application de supervision parentale de nouvelle génération. Surveillez en temps réel, bloquez le contenu inapproprié et sécurisez le parcours numérique de vos enfants avec une latence quasi nulle.
+                </p>
+                <!-- Double Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4">
+                    <a href="../dist/ParentalGuard.Setup.exe" class="flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-full hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                        <!-- Down Arrow Icon -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                        </svg>
+                        Télécharger l'Installateur
+                    </a>
+                    <a href="#console-preview" class="flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-[#f3f4f6] bg-[#131b2e] border border-[#223154] rounded-full hover:bg-[#1a2642] hover:border-[#38bdf8]/50 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                        Explorer la Console Web
+                    </a>
+                </div>
+                <!-- Mini Badge -->
+                <p class="text-xs text-[#9ca3af]/80">
+                    Compatible avec Windows 10 & 11 • Version stable 1.0.0
+                </p>
+            </div>
+
+            <!-- Right Interactive Mockup Panel -->
+            <div class="lg:col-span-6 flex justify-center">
+                <div class="w-full max-w-xl bg-[#131b2e] border border-[#223154] rounded-2xl shadow-2xl overflow-hidden relative group hover:border-[#38bdf8]/50 transition-all duration-500">
+                    <!-- Glass Gloss Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 pointer-events-none"></div>
+                    
+                    <!-- Title Bar -->
+                    <div class="bg-[#0b0f19] px-6 py-4 flex items-center justify-between border-b border-[#223154]">
+                        <div class="flex items-center gap-3">
+                            <div class="flex gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                            </div>
+                            <span class="text-xs font-semibold text-[#9ca3af] tracking-wider uppercase">Console Parent Mobile v1.0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" id="mockup-indicator"></span>
+                            <span class="text-xs text-red-500 font-medium" id="mockup-indicator-text">Écran Verrouillé</span>
+                        </div>
+                    </div>
+
+                    <!-- Mockup Console Body -->
+                    <div class="p-6 flex flex-col gap-6">
+                        <!-- Stream View Window -->
+                        <div class="relative w-full aspect-video bg-[#0b0f19] rounded-lg border border-[#223154] overflow-hidden flex items-center justify-center">
+                            <!-- Screen Mock Image (Minecraft/Youtube overlay) -->
+                            <div class="absolute inset-0 transition-opacity duration-300" id="mockup-screen-game">
+                                <div class="w-full h-full flex flex-col justify-end p-4 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900/90 to-[#0b0f19]">
+                                    <!-- Simulated Game Screen Elements -->
+                                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm border border-white/10 rounded px-2.5 py-1 text-[10px] text-[#f3f4f6] font-mono">
+                                        Vortice DXGI Capturer • 60 FPS • 1080p
+                                    </div>
+                                    <div class="absolute top-4 right-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded px-2.5 py-1 text-[10px] font-semibold">
+                                        Flux Actif
+                                    </div>
+                                    
+                                    <!-- Minecraft Simulated graphics -->
+                                    <div class="w-full h-2/3 flex items-center justify-center relative">
+                                        <!-- Simulated Game Scene -->
+                                        <svg class="w-16 h-16 text-[#9ca3af]/40" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"></path>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between z-10">
+                                        <div class="flex flex-col">
+                                            <span class="text-xs text-white font-bold">Minecraft.exe</span>
+                                            <span class="text-[10px] text-[#9ca3af]">Activité principale détectée</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <span class="w-2 h-2 rounded-full bg-[#38bdf8]"></span>
+                                            <span class="text-[10px] font-medium text-[#38bdf8]">Moniteur 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Screen Mock Locked State -->
+                            <div class="absolute inset-0 bg-red-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 gap-3 transition-opacity duration-300 opacity-100" id="mockup-screen-locked">
+                                <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path>
+                                </svg>
+                                <span class="text-sm font-bold text-red-400 uppercase tracking-widest text-center">Écran verrouillé par le parent</span>
+                                <span class="text-xs text-white/70 text-center font-mono max-w-[280px]">Session en pause. Les entrées clavier/souris sont entièrement bloquées.</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Stats Panel & Actions -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Action Left -->
+                            <div class="bg-[#0b0f19] p-4 rounded-xl border border-[#223154] flex flex-col gap-3 justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-[#9ca3af] uppercase font-bold tracking-wider">État Système</span>
+                                    <span class="text-xs font-semibold text-white mt-1 flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-[#34d399]"></span> En Ligne
+                                    </span>
+                                </div>
+                                <button class="w-full py-2 bg-[#223154] hover:bg-[#3b82f6]/20 hover:text-[#38bdf8] text-xs font-semibold text-white rounded-lg transition-colors border border-[#223154] cursor-pointer" id="mockup-action-input">
+                                    Bloquer Clavier/Souris
+                                </button>
+                            </div>
+                            <!-- Action Right -->
+                            <div class="bg-[#0b0f19] p-4 rounded-xl border border-[#223154] flex flex-col gap-3 justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] text-[#9ca3af] uppercase font-bold tracking-wider">Contrôle Instantané</span>
+                                    <span class="text-xs font-semibold text-red-400 mt-1" id="mockup-status-text">Actif</span>
+                                </div>
+                                <button class="w-full py-2 bg-red-600 hover:bg-red-500 text-xs font-semibold text-white rounded-lg transition-colors cursor-pointer" id="mockup-action-lock">
+                                    Déverrouiller
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Console Active Process Block List Simulator -->
+                        <div class="bg-[#0b0f19] p-4 rounded-xl border border-[#223154]">
+                            <div class="flex items-center justify-between mb-3 border-b border-[#223154]/50 pb-2">
+                                <span class="text-xs font-bold text-white uppercase tracking-wider">Processus Actifs</span>
+                                <span class="text-[10px] font-mono text-[#9ca3af]">2 détectés</span>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center justify-between text-xs py-1 border-b border-[#223154]/20">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-white">Minecraft.exe</span>
+                                        <span class="text-[10px] text-[#9ca3af] font-mono">PID: 9024 • RAM: 1.2 Go</span>
+                                    </div>
+                                    <button class="px-3 py-1 bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white rounded border border-red-500/30 text-[10px] font-bold transition-all cursor-pointer" id="mockup-btn-kill1">
+                                        Terminer
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between text-xs py-1">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-white">Discord.exe</span>
+                                        <span class="text-[10px] text-[#9ca3af] font-mono">PID: 5120 • RAM: 320 Mo</span>
+                                    </div>
+                                    <button class="px-3 py-1 bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white rounded border border-red-500/30 text-[10px] font-bold transition-all cursor-pointer" id="mockup-btn-kill2">
+                                        Terminer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="border-y border-[#223154]/40 bg-[#131b2e]/30 relative z-10 py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="flex flex-col gap-2">
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="0">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Latence (ms) DXGI</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="100">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">% Furtif / Indétectable</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="1">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Clic pour Verrouiller</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="24">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">H/7 Protection Active</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features Section -->
+    <section id="features" class="py-20 md:py-28 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center flex flex-col gap-4 max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Une Technologie d'Avant-garde</span>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">
+                Supervision totale et blocage instantané
+            </h2>
+            <p class="text-sm md:text-base text-[#9ca3af]">
+                L'application Parental Guard intègre des mécanismes au niveau système pour offrir une efficacité sans faille et une réactivité optimale.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Screen & Audio Streaming -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Screen Stream Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Streaming Écran & Son Haute Vitesse</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Grâce à l'API <strong>Vortice DXGI</strong> (Desktop Duplication API), capturez et diffusez l'activité de l'écran avec une latence infime et un impact CPU minimal. Gère le multi-écran de manière fluide.
+                </p>
+            </div>
+
+            <!-- Card 2: Remote Control & Locking -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Remote Control Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.025 19.493l-.834 2.92c-.082.287-.47.287-.552 0l-.834-2.92a7.5 7.5 0 010-4.102l.834-2.92c.082-.287.47-.287.552 0l.834 2.92a7.5 7.5 0 010 4.102z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Verrouillage & Contrôle à Distance</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Bloquez instantanément la machine de votre enfant en un clic. Bloquez les entrées physiques (clavier, souris) ou forcez l'extinction de l'écran pour limiter le temps d'écran immédiatement.
+                </p>
+            </div>
+
+            <!-- Card 3: WMI Process Blocker -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Process Blocker Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Bloqueur Actif de Processus</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Surveillance par requêtes WMI ou scans périodiques de l'état des processus. Bloquez instantanément les jeux gourmands en temps (Minecraft, Fortnite) ou les applications non autorisées en arrière-plan.
+                </p>
+            </div>
+
+            <!-- Card 4: Local DNS Filter -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- DNS Filter Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Filtrage de Contenu DNS local</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Utilise l'édition automatique sécurisée du fichier d'hôtes locaux (Hosts) pour rediriger ou bloquer l'accès aux sites pour adultes, réseaux sociaux ou domaines personnalisés. Aucun VPN requis.
+                </p>
+            </div>
+
+            <!-- Card 5: Mobile Web Console (Tailscale) -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Mobile Console Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Console Web Mobile Parent</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Hébergée directement par l'agent Windows. Accédez-y en toute sécurité depuis votre téléphone via votre réseau local ou un réseau privé virtuel comme <strong>Tailscale</strong>. Pas de serveur cloud tiers requis !
+                </p>
+            </div>
+
+            <!-- Card 6: Stealth Watchdog Companion -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Stealth Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Compagnon Watchdog Furtif</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Un processus compagnon discret qui s'assure que l'agent de contrôle reste actif. Si l'application principale est fermée par le gestionnaire des tâches, le Watchdog la redémarre instantanément.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Console Interactive Showcase -->
+    <section id="console-preview" class="py-20 md:py-28 bg-[#131b2e]/20 border-y border-[#223154]/40 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image Mock / Visual description -->
+                <div class="lg:col-span-6 flex flex-col gap-6">
+                    <span class="text-xs font-semibold text-[#34d399] uppercase tracking-widest">Interface en Temps Réel</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">
+                        La Console Web Parent en action
+                    </h2>
+                    <p class="text-[#9ca3af] leading-relaxed">
+                        L'application intègre son propre micro-serveur Web. Pour l'utiliser, il vous suffit de vous connecter à l'adresse IP locale de l'ordinateur surveillé, ou à son adresse VPN Tailscale.
+                    </p>
+                    
+                    <ul class="flex flex-col gap-4 text-sm text-[#f3f4f6]">
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-[#34d399]/20 flex items-center justify-center text-[#34d399] mt-0.5 font-bold">✓</span>
+                            <div>
+                                <strong>Connexion WebSocket Sécurisée :</strong>
+                                Le flux d'images et les commandes de contrôle passent par un canal crypté par jeton d'accès temporaire de 24h.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-[#34d399]/20 flex items-center justify-center text-[#34d399] mt-0.5 font-bold">✓</span>
+                            <div>
+                                <strong>Arrêt forcé d'applications :</strong>
+                                Voyez la liste des fenêtres ouvertes avec leur consommation mémoire et tuez un jeu gênant instantanément.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-[#34d399]/20 flex items-center justify-center text-[#34d399] mt-0.5 font-bold">✓</span>
+                            <div>
+                                <strong>Zéro Infrastructure Cloud :</strong>
+                                Vos données d'écran et d'utilisation ne sont jamais envoyées sur un serveur distant externe. Confidentialité totale garantie.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Web Console Interactive Demo Card -->
+                <div class="lg:col-span-6">
+                    <div class="bg-[#131b2e] border border-[#223154] rounded-2xl shadow-xl p-6 flex flex-col gap-6">
+                        <div class="flex justify-between items-center pb-4 border-b border-[#223154]/50">
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-lg">Démonstrateur de Console</h3>
+                                <p class="text-xs text-[#9ca3af]">Simulez l'envoi de commandes à la machine enfant</p>
+                            </div>
+                            <span class="px-2.5 py-1 rounded bg-[#38bdf8]/10 text-[#38bdf8] text-xs font-mono font-semibold">Simulateur</span>
+                        </div>
+
+                        <!-- Interactive Area -->
+                        <div class="flex flex-col gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-[#9ca3af] mb-2 uppercase">1. Choisissez une commande</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="lock" data-param="Étude en cours">
+                                        🔒 Verrouiller l'écran
+                                    </button>
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="unlock">
+                                        🔓 Déverrouiller
+                                    </button>
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="blockinput" data-param="true">
+                                        🚫 Bloquer Souris/Clavier
+                                    </button>
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="screenpower" data-param="off">
+                                        🔌 Éteindre l'Écran
+                                    </button>
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="killprocess" data-param="9024">
+                                        ⚡ Terminer Minecraft
+                                    </button>
+                                    <button class="py-2.5 px-3 bg-[#0b0f19] hover:bg-[#38bdf8]/10 hover:text-[#38bdf8] border border-[#223154] hover:border-[#38bdf8]/40 rounded-xl text-xs font-medium text-white transition-all cursor-pointer demo-btn" data-action="setkeywords" data-param="jeux, adult, tiktok">
+                                        🛠️ Bloquer "jeux, tiktok"
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Live Feedback Console -->
+                            <div class="bg-[#0b0f19] border border-[#223154] rounded-xl p-4 font-mono text-xs flex flex-col gap-2">
+                                <div class="flex items-center justify-between text-[#9ca3af] border-b border-[#223154]/50 pb-2 mb-1">
+                                    <span>Console Logs d'Agent</span>
+                                    <button class="hover:text-white text-[10px] uppercase font-bold cursor-pointer" id="clear-demo-logs">Effacer</button>
+                                </div>
+                                <div class="flex flex-col gap-1.5 overflow-y-auto max-h-[140px]" id="demo-logs-container">
+                                    <div class="text-[#9ca3af]">[08:55:00] Initialisation du serveur Web sur le port 5000...</div>
+                                    <div class="text-[#34d399]">[08:55:01] Web Control Server démarré avec succès.</div>
+                                    <div class="text-[#38bdf8]">[08:55:03] Jeton WebSocket actif généré : 2f94ca811e9a...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 md:py-28 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center flex flex-col gap-4 max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Avis des Parents</span>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">
+                Recommandé par des centaines de familles
+            </h2>
+            <p class="text-sm md:text-base text-[#9ca3af]">
+                Découvrez comment notre solution permet aux parents de dormir sereinement sans nuire à la vie privée des enfants.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="bg-[#131b2e] border border-[#223154] p-8 rounded-2xl flex flex-col justify-between gap-6 hover:border-[#38bdf8]/30 transition-all duration-300">
+                <div class="flex flex-col gap-4">
+                    <!-- Rating Stars -->
+                    <div class="flex gap-1 text-[#38bdf8]">
+                        <!-- Star SVGs -->
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-sm text-[#9ca3af] italic leading-relaxed">
+                        "L'installation est ultra simple. J'utilise la console web directement sur mon mobile via Tailscale. C'est incroyable de pouvoir arrêter Minecraft d'un seul clic à l'heure du dîner sans quitter le canapé."
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#34d399] flex items-center justify-center font-bold text-white text-sm">
+                        SB
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Stéphane B.</h4>
+                        <p class="text-[10px] text-[#9ca3af]">Père de 2 enfants (11 et 14 ans)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-[#131b2e] border border-[#223154] p-8 rounded-2xl flex flex-col justify-between gap-6 hover:border-[#38bdf8]/30 transition-all duration-300">
+                <div class="flex flex-col gap-4">
+                    <div class="flex gap-1 text-[#38bdf8]">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-sm text-[#9ca3af] italic leading-relaxed">
+                        "La fonctionnalité de filtrage DNS local est géniale. Pas besoin de paramétrer des serveurs DNS complexes ou de souscrire à un abonnement mensuel hors de prix. Tout est stocké et bloqué localement sur la machine."
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#34d399] flex items-center justify-center font-bold text-white text-sm">
+                        CL
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Carole L.</h4>
+                        <p class="text-[10px] text-[#9ca3af]">Mère d'un adolescent de 16 ans</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-[#131b2e] border border-[#223154] p-8 rounded-2xl flex flex-col justify-between gap-6 hover:border-[#38bdf8]/30 transition-all duration-300">
+                <div class="flex flex-col gap-4">
+                    <div class="flex gap-1 text-[#38bdf8]">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-sm text-[#9ca3af] italic leading-relaxed">
+                        "En tant que développeur, j'apprécie la robustesse de l'implémentation : le compagnon Watchdog empêche mon fils de simplement tuer l'agent via le gestionnaire des tâches, et l'API DXGI offre une fluidité incroyable sans ramer."
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#34d399] flex items-center justify-center font-bold text-white text-sm">
+                        AD
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Alexandre D.</h4>
+                        <p class="text-[10px] text-[#9ca3af]">Père d'un garçon de 13 ans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 md:py-28 max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center flex flex-col gap-4 max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Des réponses à vos questions</span>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">
+                Foire Aux Questions
+            </h2>
+            <p class="text-sm text-[#9ca3af]">
+                Tout ce que vous devez savoir sur l'application de contrôle parental <strong>controleparental.icu</strong>.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+            <!-- FAQ 1 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>L'application est-elle détectable par mon enfant ?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        L'agent s'exécute silencieusement en arrière-plan en tant que service Windows ou processus discret. Il est conçu pour être aussi furtif que possible afin d'éviter le contournement. De plus, notre service <strong>Watchdog</strong> veille en permanence : si l'agent principal est arrêté ou altéré, le Watchdog le relance automatiquement en quelques millisecondes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>Comment fonctionne la console mobile sans cloud ?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        L'agent Windows lance un serveur web léger (en interne avec <code>HttpListener</code> et WebSockets) sur l'ordinateur de votre enfant. Pour y accéder à distance sur votre mobile, vous devez être connecté au même réseau Wi-Fi ou utiliser un réseau privé virtuel comme <strong>Tailscale</strong>. Ainsi, les données de streaming d'écran et d'activité restent strictement confinées entre l'ordinateur cible et votre appareil mobile.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>Le blocage de contenu internet ralentit-il la connexion ?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        Absolument pas. Au lieu d'analyser le trafic en continu avec un proxy lourd, l'application modifie intelligemment le fichier <code>hosts</code> local de Windows pour bloquer ou rediriger les requêtes vers les domaines indésirables ou les moteurs de recherche. Cela s'effectue instantanément au niveau du système d'exploitation avec une surcharge réseau de 0%.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>Est-il possible de bloquer des jeux ou des applications spécifiques ?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        Oui. Le bloqueur de processus recherche activement les exécutables en cours d'exécution correspondants à votre liste noire (par exemple, <code>minecraft.exe</code>, <code>discord.exe</code>, <code>chrome.exe</code>) et les termine immédiatement. Vous pouvez éditer cette liste en temps réel depuis la console web parent.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>Quels sont les prérequis pour installer ParentalGuard ?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        Le logiciel nécessite un ordinateur équipé de Windows 10 ou Windows 11 (64 bits) et .NET 9.0 (installé automatiquement si manquant). Pour la console d'administration parent, n'importe quel smartphone, tablette ou ordinateur connecté au même réseau local ou VPN convient, sans installation logicielle requise côté parent.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Climax CTA Section -->
+    <section class="py-20 md:py-28 max-w-5xl mx-auto px-6 relative z-10 text-center">
+        <div class="bg-gradient-to-br from-[#131b2e] to-[#0f1524] border border-[#223154] rounded-3xl p-10 md:p-16 flex flex-col items-center gap-8 shadow-2xl relative overflow-hidden group">
+            <!-- Background Glow inside card -->
+            <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-[#38bdf8]/10 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+            <div class="absolute -bottom-24 -right-24 w-48 h-48 rounded-full bg-[#34d399]/10 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Protection Immédiate</span>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-white tracking-tight max-w-2xl leading-tight">
+                Reprenez le contrôle du temps d'écran dès aujourd'hui
+            </h2>
+            <p class="text-sm md:text-base text-[#9ca3af] max-w-xl">
+                Téléchargez gratuitement l'installateur complet de ParentalGuard et configurez votre console en moins de 3 minutes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                <a href="../dist/ParentalGuard.Setup.exe" class="flex items-center justify-center gap-3 px-10 py-5 text-base font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-full hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+                    </svg>
+                    Télécharger ParentalGuard (.exe)
+                </a>
+            </div>
+            
+            <span class="text-xs text-[#9ca3af]/60 font-mono">MD5 Hash de l'installateur vérifié • 100% sans logiciel publicitaire</span>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-[#223154]/50 bg-[#0b0f19] relative z-10 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+            <!-- Brand Info -->
+            <div class="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
+                <a href="#" class="flex items-center gap-2 group">
+                    <svg class="w-6 h-6 text-[#38bdf8]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)"/>
+                        <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
+                    </svg>
+                    <span class="font-heading text-base font-bold tracking-tight text-white">
+                        controleparental<span class="text-[#38bdf8]">.icu</span>
+                    </span>
+                </a>
+                <p class="text-xs text-[#9ca3af] max-w-xs">
+                    Solution libre et auto-hébergée pour la sécurité de vos enfants en ligne. Fièrement développé pour Windows.
+                </p>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-xs md:text-sm font-medium text-[#9ca3af]">
+                <a href="#" class="hover:text-white transition-colors cursor-pointer">Conditions d'Utilisation</a>
+                <a href="#" class="hover:text-white transition-colors cursor-pointer">Politique de Confidentialité</a>
+                <a href="mailto:support@controleparental.icu" class="hover:text-white transition-colors cursor-pointer">Contact Support</a>
+                <a href="../dist/ParentalGuard.Setup.exe" class="hover:text-white transition-colors cursor-pointer">Lien d'Installation Direct</a>
+            </div>
+
+            <!-- Copyright and version -->
+            <div class="text-center md:text-right flex flex-col gap-2">
+                <span class="text-xs text-[#9ca3af]">&copy; 2026 controleparental.icu. Tous droits réservés.</span>
+                <span class="text-[10px] text-[#9ca3af]/50 font-mono">v1.0.0 Stable • Fait avec passion</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS script -->
+    <script src="app.js"></script>
+</body>
+</html>
