@@ -110,21 +110,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const target = entry.target;
                 const targetVal = parseInt(target.getAttribute('data-target'), 10);
+                const prefix = target.getAttribute('data-prefix') || '';
+                const suffix = target.getAttribute('data-suffix') || '';
+                const fmt = (n) => prefix + Math.floor(n).toLocaleString('fr-FR') + suffix;
                 let currentVal = 0;
-                
+
                 // Set duration and step timing
                 const duration = 1500; // 1.5 seconds total
                 const steps = 60;
                 const increment = targetVal / steps;
                 const stepTime = duration / steps;
-                
+
                 const timer = setInterval(() => {
                     currentVal += increment;
                     if (currentVal >= targetVal) {
-                        target.innerText = targetVal;
+                        target.innerText = fmt(targetVal);
                         clearInterval(timer);
                     } else {
-                        target.innerText = Math.floor(currentVal);
+                        target.innerText = fmt(currentVal);
                     }
                 }, stepTime);
                 

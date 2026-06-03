@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrôle parental Windows en temps réel — controleparental.icu</title>
-    <meta name="description" content="Logiciel de contrôle parental pour Windows 10/11 : surveillance d'écran en temps réel, blocage de sites et de jeux, console parents mobile. Gratuit et auto-hébergé.">
-    <meta name="keywords" content="contrôle parental, contrôle parental Windows, surveillance enfant, blocage de sites, blocage de jeux, sécurité enfants en ligne, supervision parentale, ParentalGuard">
+    <meta name="description" content="Logiciel de contrôle parental pour Windows 10/11 : surveillance d'écran en temps réel, filtrage de 430 000+ sites, blocage VPN/Tor et DNS sécurisé (DoH), console parents mobile. Gratuit et auto-hébergé.">
+    <meta name="keywords" content="contrôle parental, contrôle parental Windows, surveillance enfant, blocage de sites, blocage de jeux, blocage VPN, blocage Tor, filtrage DNS, anti DoH, sécurité enfants en ligne, supervision parentale, ParentalGuard">
     <meta name="author" content="controleparental.icu">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#0b0f19">
@@ -21,7 +21,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://controleparental.icu/">
     <meta property="og:title" content="Contrôle parental Windows en temps réel — controleparental.icu">
-    <meta property="og:description" content="Surveillance d'écran en temps réel, blocage de sites et de jeux, console parents mobile. Logiciel de contrôle parental gratuit et auto-hébergé pour Windows 10/11.">
+    <meta property="og:description" content="Surveillance d'écran en temps réel, filtrage de 430 000+ sites, blocage VPN/Tor et DNS sécurisé, console parents mobile. Logiciel de contrôle parental gratuit et auto-hébergé pour Windows 10/11.">
     <meta property="og:image" content="https://controleparental.icu/og-image.png">
     <meta property="og:image:secure_url" content="https://controleparental.icu/og-image.png">
     <meta property="og:image:type" content="image/png">
@@ -32,7 +32,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contrôle parental Windows en temps réel — controleparental.icu">
-    <meta name="twitter:description" content="Surveillance d'écran en temps réel, blocage de sites et de jeux, console parents mobile. Gratuit et auto-hébergé pour Windows 10/11.">
+    <meta name="twitter:description" content="Surveillance d'écran en temps réel, filtrage de 430 000+ sites, blocage VPN/Tor et DNS sécurisé, console parents mobile. Gratuit et auto-hébergé pour Windows 10/11.">
     <meta name="twitter:image" content="https://controleparental.icu/og-image.png">
     <meta name="twitter:image:alt" content="controleparental.icu — contrôle parental pour Windows">
 
@@ -93,10 +93,10 @@
           "operatingSystem": "Windows 10, Windows 11",
           "applicationCategory": "SecurityApplication",
           "applicationSubCategory": "Contrôle parental",
-          "softwareVersion": "1.0.0",
+          "softwareVersion": "1.2.0",
           "url": "https://controleparental.icu/",
           "downloadUrl": "https://controleparental.icu/",
-          "description": "Application de contrôle parental nouvelle génération pour Windows : streaming d'écran en temps réel, blocage de contenu et de jeux, console parents accessible depuis mobile.",
+          "description": "Application de contrôle parental nouvelle génération pour Windows : streaming d'écran et d'audio en temps réel, filtrage de 430 000+ sites, blocage des VPN, de Tor et du DNS sécurisé (DoH), planificateur horaire et console parents accessible depuis mobile.",
           "inLanguage": "fr-FR",
           "publisher": { "@id": "https://controleparental.icu/#organization" },
           "offers": {
@@ -106,11 +106,16 @@
             "availability": "https://schema.org/InStock"
           },
           "featureList": [
-            "Surveillance d'écran en temps réel (DXGI)",
-            "Blocage de sites web via le fichier hosts",
-            "Blocage de processus et de jeux",
-            "Console Parents accessible depuis mobile",
-            "Service Watchdog anti-contournement"
+            "Streaming d'écran et d'audio en temps réel (DXGI + WASAPI/Opus), latence < 45 ms",
+            "Filtrage de 430 000+ sites pour adultes (listes communautaires fusionnées)",
+            "Protection anti-contournement DNS sécurisé (anti-DoH)",
+            "Blocage des VPN, de Tor et des proxies de contournement",
+            "Blocage de processus et de jeux en temps réel (WMI)",
+            "Planificateur horaire jour par jour",
+            "Console Parents (PWA) accessible depuis mobile, liaison chiffrée ECDH",
+            "Accès à distance via Tailscale en mode furtif",
+            "Auto-défense : service Windows LocalSystem + Watchdog",
+            "Installateur 1-clic pré-configuré"
           ]
         },
         {
@@ -155,6 +160,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Le logiciel nécessite un ordinateur équipé de Windows 10 ou Windows 11 (64 bits) et .NET 9.0 (installé automatiquement si manquant). Pour la console d'administration parent, n'importe quel smartphone, tablette ou ordinateur connecté au même réseau local ou VPN convient, sans installation logicielle requise côté parent."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Mon enfant peut-il contourner le filtrage avec un VPN ou le DNS sécurisé (DoH) ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. La version 1.2.0 bloque par défaut les principaux VPN et outils de contournement (ProtonVPN, NordVPN, ExpressVPN, Tor, Windscribe, CyberGhost, Surfshark, Hotspot Shield, TunnelBear, Psiphon, Ultrasurf) : leur processus est détecté et fermé en moins d'une seconde. Pour empêcher le contournement du filtrage par le DNS sécurisé (DNS-over-HTTPS), les serveurs DoH majeurs (Cloudflare, Google, Quad9, AdGuard, NextDNS, OpenDNS, CleanBrowsing) sont redirigés vers 127.0.0.1 : le navigateur est forcé d'utiliser le DNS du système, qui reste filtré par ParentalGuard."
               }
             }
           ]
@@ -243,7 +256,7 @@
                 </h1>
                 <!-- Subheadline -->
                 <p class="text-base sm:text-lg text-[#9ca3af] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Découvrez <strong>controleparental.icu</strong> (ICU - <em>I See You</em>), l'application de supervision parentale de nouvelle génération. Surveillez en temps réel, bloquez le contenu inapproprié et sécurisez le parcours numérique de vos enfants avec une latence quasi nulle.
+                    Découvrez <strong>controleparental.icu</strong> (ICU - <em>I See You</em>), l'application de supervision parentale de nouvelle génération. Surveillez l'écran et le son en temps réel, filtrez plus de <strong>430 000 sites</strong>, bloquez les VPN, Tor et le DNS sécurisé, et sécurisez le parcours numérique de vos enfants avec une latence quasi nulle.
                 </p>
                 <!-- Double Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4">
@@ -260,7 +273,7 @@
                 </div>
                 <!-- Mini Badge -->
                 <p class="text-xs text-[#9ca3af]/80">
-                    Compatible avec Windows 10 & 11 • Version stable 1.0.0
+                    Compatible avec Windows 10 & 11 • Version stable 1.2.0
                 </p>
             </div>
 
@@ -278,7 +291,7 @@
                                 <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
                                 <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
                             </div>
-                            <span class="text-xs font-semibold text-[#9ca3af] tracking-wider uppercase">Console Parent Mobile v1.0</span>
+                            <span class="text-xs font-semibold text-[#9ca3af] tracking-wider uppercase">Console Parents PWA v1.2</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="inline-block w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" id="mockup-indicator"></span>
@@ -395,20 +408,20 @@
     <section class="border-y border-[#223154]/40 bg-[#131b2e]/30 relative z-10 py-12">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div class="flex flex-col gap-2">
-                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="0">0</span>
-                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Latence (ms) DXGI</span>
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="45" data-prefix="&lt; " data-suffix=" ms">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Latence Vidéo + Audio (LAN)</span>
             </div>
             <div class="flex flex-col gap-2">
-                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="100">0</span>
-                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">% Furtif / Indétectable</span>
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="430000" data-suffix="+">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Sites pour adultes filtrés</span>
             </div>
             <div class="flex flex-col gap-2">
-                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="1">0</span>
-                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Clic pour Verrouiller</span>
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="12">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">VPN & contournements bloqués</span>
             </div>
             <div class="flex flex-col gap-2">
-                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="24">0</span>
-                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">H/7 Protection Active</span>
+                <span class="text-3xl md:text-4xl font-heading font-extrabold bg-gradient-to-r from-[#38bdf8] to-[#34d399] bg-clip-text text-transparent stats-number" data-target="24" data-suffix="/7">0</span>
+                <span class="text-xs md:text-sm font-semibold text-[#9ca3af] uppercase tracking-wider">Protection active</span>
             </div>
         </div>
     </section>
@@ -416,12 +429,12 @@
     <!-- Main Features Section -->
     <section id="features" class="py-20 md:py-28 max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center flex flex-col gap-4 max-w-2xl mx-auto mb-16">
-            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Une Technologie d'Avant-garde</span>
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Nouveautés v1.2.0 — Une Technologie d'Avant-garde</span>
             <h2 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">
-                Supervision totale et blocage instantané
+                Supervision totale et blocage anti-contournement
             </h2>
             <p class="text-sm md:text-base text-[#9ca3af]">
-                L'application Parental Guard intègre des mécanismes au niveau système pour offrir une efficacité sans faille et une réactivité optimale.
+                ParentalGuard intègre des mécanismes au niveau système pour une efficacité sans faille : streaming temps réel, filtrage de 430 000+ sites, blocage des VPN, de Tor et du DNS sécurisé, le tout protégé par une auto-défense renforcée.
             </p>
         </div>
 
@@ -436,7 +449,7 @@
                 </div>
                 <h3 class="font-heading text-lg font-bold text-white">Streaming Écran & Son Haute Vitesse</h3>
                 <p class="text-sm text-[#9ca3af] leading-relaxed">
-                    Grâce à l'API <strong>Vortice DXGI</strong> (Desktop Duplication API), capturez et diffusez l'activité de l'écran avec une latence infime et un impact CPU minimal. Gère le multi-écran de manière fluide.
+                    L'API <strong>Vortice DXGI</strong> (Desktop Duplication) capture l'écran directement depuis la carte graphique (impact CPU &lt; 3% en 1080p), tandis que le son système est encodé en direct en <strong>Opus</strong> à 64 kbps via WASAPI. Latence totale vidéo + audio <strong>inférieure à 45 ms</strong> sur le réseau local.
                 </p>
             </div>
 
@@ -464,9 +477,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Bloqueur Actif de Processus</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Blocage Jeux, VPN & Tor</h3>
                 <p class="text-sm text-[#9ca3af] leading-relaxed">
-                    Surveillance par requêtes WMI ou scans périodiques de l'état des processus. Bloquez instantanément les jeux gourmands en temps (Minecraft, Fortnite) ou les applications non autorisées en arrière-plan.
+                    Un <strong>WMI Event Watcher</strong> détecte le lancement de tout nouveau processus en moins d'une seconde et le ferme aussitôt : jeux (Minecraft, Fortnite) comme outils de contournement. <strong>VPN et Tor bloqués par défaut</strong> (ProtonVPN, NordVPN, ExpressVPN, Tor, Windscribe, CyberGhost, Surfshark, et plus).
                 </p>
             </div>
 
@@ -478,9 +491,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253"></path>
                     </svg>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Filtrage de Contenu DNS local</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Triple Filtrage — 430 000+ Sites</h3>
                 <p class="text-sm text-[#9ca3af] leading-relaxed">
-                    Utilise l'édition automatique sécurisée du fichier d'hôtes locaux (Hosts) pour rediriger ou bloquer l'accès aux sites pour adultes, réseaux sociaux ou domaines personnalisés. Aucun VPN requis.
+                    Fusion de 3 listes communautaires de référence (BlocklistProject, Oisd NSFW, StevenBlack) — plus de <strong>430 000 sites pour adultes</strong> chargés en mémoire et rafraîchis toutes les 24 h. L'URL active du navigateur est surveillée toutes les 500 ms : un site interdit ? L'onglet est fermé instantanément.
                 </p>
             </div>
 
@@ -492,9 +505,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path>
                     </svg>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Console Parents Mobile</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Console Parents Mobile (PWA)</h3>
                 <p class="text-sm text-[#9ca3af] leading-relaxed">
-                    Hébergée directement par l'agent Windows. Accédez-y en toute sécurité depuis votre téléphone via votre réseau local ou un réseau privé virtuel comme <strong>Tailscale</strong>. Pas de serveur cloud tiers requis !
+                    Une application web progressive (PWA) moderne, hébergée directement par l'agent Windows et accessible depuis n'importe quel smartphone. Liaison <strong>chiffrée ECDH (nistP256, AES-256)</strong> : verrouillage immédiat, filtrage, mots-clés et planning, tout en temps réel. Aucun serveur cloud tiers.
                 </p>
             </div>
 
@@ -506,9 +519,51 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path>
                     </svg>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Compagnon Watchdog Furtif</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Auto-défense Renforcée</h3>
                 <p class="text-sm text-[#9ca3af] leading-relaxed">
-                    Un processus compagnon discret qui s'assure que l'agent de contrôle reste actif. Si l'application principale est fermée par le gestionnaire des tâches, le Watchdog la redémarre instantanément.
+                    L'agent tourne en <strong>service Windows LocalSystem</strong> dès le démarrage (Session 0) : un utilisateur normal ne peut pas l'arrêter. Un <strong>Watchdog furtif</strong> assure une surveillance mutuelle toutes les 1,5 s et relance instantanément tout composant fermé. Restauration automatique au boot.
+                </p>
+            </div>
+
+            <!-- Card 7: Anti-DoH DNS protection -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Shield / lock Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Protection Anti-DoH (DNS sécurisé)</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Les navigateurs modernes utilisent le DNS-over-HTTPS pour contourner le filtrage. ParentalGuard redirige les serveurs DoH majeurs (Cloudflare, Google, Quad9, AdGuard, NextDNS, OpenDNS, CleanBrowsing) vers <code>127.0.0.1</code> : le navigateur retombe sur le DNS du système, qui reste filtré.
+                </p>
+            </div>
+
+            <!-- Card 8: Scheduler -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Clock Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Planificateur Horaire Modulaire</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Définissez des plages d'interdiction <strong>jour par jour</strong> (par exemple de 21h00 à 07h00). À l'heure dite, l'agent verrouille l'écran avec un voile noir plein écran qui bloque clavier et souris et affiche votre message personnalisé. L'heure est évaluée chaque seconde.
+                </p>
+            </div>
+
+            <!-- Card 9: 1-click installer -->
+            <div class="bg-[#131b2e] border border-[#223154] hover:border-[#38bdf8]/40 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5 group">
+                <div class="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] group-hover:bg-[#38bdf8]/20 transition-colors">
+                    <!-- Cursor click Icon SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-bold text-white">Installateur 1-Clic Pré-configuré</h3>
+                <p class="text-sm text-[#9ca3af] leading-relaxed">
+                    Depuis le visualiseur parent, fixez le mot de passe et la clé d'accès à distance : ils sont injectés à la fin du binaire d'installation. Sur le PC de l'enfant, un simple double-clic installe l'agent, configure le pare-feu, crée le service et le Watchdog — <strong>sans aucune question</strong>.
                 </p>
             </div>
         </div>
@@ -525,15 +580,15 @@
                         La Console Parents en action
                     </h2>
                     <p class="text-[#9ca3af] leading-relaxed">
-                        L'application intègre son propre micro-serveur Web. Pour l'utiliser, il vous suffit de vous connecter à l'adresse IP locale de l'ordinateur surveillé, ou à son adresse VPN Tailscale.
+                        L'application intègre son propre micro-serveur Web. Connectez-vous à l'adresse IP locale de l'ordinateur surveillé, ou — pour une surveillance hors du domicile — à son adresse <strong>Tailscale</strong>, installé en mode furtif par l'installateur (sans icône ni démarrage visible).
                     </p>
                     
                     <ul class="flex flex-col gap-4 text-sm text-[#f3f4f6]">
                         <li class="flex items-start gap-3">
                             <span class="w-5 h-5 rounded-full bg-[#34d399]/20 flex items-center justify-center text-[#34d399] mt-0.5 font-bold">✓</span>
                             <div>
-                                <strong>Connexion WebSocket Sécurisée :</strong>
-                                Le flux d'images et les commandes de contrôle passent par un canal crypté par jeton d'accès temporaire de 24h.
+                                <strong>Connexion chiffrée de bout en bout :</strong>
+                                Le flux d'images et les commandes passent par un canal protégé par échange de clés <strong>ECDH (nistP256)</strong> et chiffrement AES-256, avec jeton d'accès temporaire.
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
@@ -702,6 +757,22 @@
                     </p>
                 </div>
             </div>
+
+            <!-- FAQ 6 -->
+            <div class="bg-[#131b2e] border border-[#223154] rounded-2xl overflow-hidden transition-all duration-300 faq-item">
+                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#38bdf8] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger">
+                    <span>Mon enfant peut-il contourner le filtrage avec un VPN ou le DNS sécurisé&nbsp;?</span>
+                    <!-- Chevron icon -->
+                    <svg class="w-5 h-5 text-[#9ca3af] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </button>
+                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="px-6 pb-5 text-sm text-[#9ca3af] leading-relaxed">
+                        Non. La version <strong>1.2.0</strong> bloque par défaut les principaux VPN et outils de contournement (ProtonVPN, NordVPN, ExpressVPN, Tor, Windscribe, CyberGhost, Surfshark, Hotspot Shield, TunnelBear, Psiphon, Ultrasurf) : leur processus est détecté et fermé en moins d'une seconde. Et pour empêcher le contournement par le <strong>DNS sécurisé (DNS-over-HTTPS)</strong>, les serveurs DoH majeurs (Cloudflare, Google, Quad9, AdGuard, NextDNS, OpenDNS, CleanBrowsing) sont redirigés vers <code>127.0.0.1</code> : le navigateur est forcé d'utiliser le DNS du système, qui reste filtré par ParentalGuard.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -767,7 +838,7 @@
             <!-- Copyright and version -->
             <div class="text-center md:text-right flex flex-col gap-2">
                 <span class="text-xs text-[#9ca3af]">&copy; 2026 controleparental.icu. Tous droits réservés.</span>
-                <span class="text-[10px] text-[#9ca3af]/50 font-mono">v1.0.0 Stable • Fait avec passion</span>
+                <span class="text-[10px] text-[#9ca3af]/50 font-mono">v1.2.0 Stable • Fait avec passion</span>
             </div>
         </div>
     </footer>
@@ -783,7 +854,7 @@
             <div class="flex flex-col gap-2">
                 <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Téléchargement gratuit</span>
                 <h3 id="dl-title" class="font-heading text-2xl font-bold text-white">Recevez le lien de téléchargement</h3>
-                <p class="text-sm text-[#9ca3af]">Indiquez votre adresse email pour télécharger <strong>controleparental.icu</strong> (Windows 10/11, v1.0.0).</p>
+                <p class="text-sm text-[#9ca3af]">Indiquez votre adresse email pour télécharger <strong>controleparental.icu</strong> (Windows 10/11, v1.2.0).</p>
             </div>
             <form id="dl-form" class="flex flex-col gap-4" novalidate>
                 <div class="flex flex-col gap-1.5">
