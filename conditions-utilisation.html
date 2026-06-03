@@ -33,93 +33,204 @@
     </script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#0b0f19] text-[#f3f4f6] font-sans antialiased min-h-screen relative">
+<body class="bg-[#0b0f19] text-[#f3f4f6] font-sans antialiased min-h-screen relative overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="border-b border-[#223154]/50 bg-[#0b0f19]/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2 group">
-                <svg class="w-6 h-6 text-[#38bdf8]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- background glow effects -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-[#38bdf8]/10 to-transparent blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute top-[35%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-br from-[#34d399]/5 to-transparent blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-[-10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tr from-[#3b82f6]/5 to-transparent blur-[150px] pointer-events-none z-0"></div>
+
+    <!-- Floating Navbar -->
+    <header class="fixed top-4 left-4 right-4 z-50">
+        <nav class="max-w-4xl mx-auto backdrop-blur-md bg-[#131b2e]/75 border border-[#223154]/60 rounded-full px-5 sm:px-6 py-3 flex items-center justify-between shadow-lg">
+            <a href="/" class="flex items-center gap-2 group focus:outline-none">
+                <svg class="w-7 h-7 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs>
                     <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)"/>
                     <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
                 </svg>
-                <span class="font-heading text-base font-bold tracking-tight text-white">controleparental<span class="text-[#38bdf8]">.icu</span></span>
+                <span class="font-heading text-base md:text-lg font-bold tracking-tight text-white">controleparental<span class="text-[#38bdf8]">.icu</span></span>
             </a>
-            <a href="/" class="text-xs md:text-sm font-medium text-[#9ca3af] hover:text-white transition-colors">&larr; Retour à l'accueil</a>
-        </div>
+            <a href="/" class="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-[#9ca3af] hover:text-white transition-colors cursor-pointer">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+                Retour à l'accueil
+            </a>
+        </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto px-6 py-12 md:py-16">
-        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white tracking-tight">Conditions générales d'utilisation</h1>
+    <!-- Page header -->
+    <section class="relative pt-28 md:pt-32 pb-6 max-w-3xl mx-auto px-6 z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#131b2e] border border-[#223154] rounded-full">
+            <svg class="w-3.5 h-3.5 text-[#38bdf8]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider">Informations légales · CGU</span>
+        </div>
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mt-5 leading-[1.1]">Conditions générales d'utilisation</h1>
         <p class="text-sm text-[#9ca3af] mt-3">Dernière mise à jour : 3 juin 2026</p>
+    </section>
 
-        <div class="mt-10 flex flex-col gap-10 text-[#cbd5e1] leading-relaxed text-sm md:text-base">
+    <main class="max-w-3xl mx-auto px-6 pb-16 relative z-10">
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">1. Objet et éditeur</h2>
-                <p>Les présentes conditions générales d'utilisation (« CGU ») régissent l'accès et l'utilisation du site <strong>controleparental.icu</strong> et du logiciel de contrôle parental qui y est proposé (le « Service »).</p>
-                <p>Le Service est édité, conçu et développé en France 🇫🇷 par <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline">slgd.fr</a>. Pour toute question, contactez-nous à <a href="mailto:support@controleparental.icu" class="text-[#38bdf8] hover:underline">support@controleparental.icu</a>.</p>
+        <!-- Sommaire -->
+        <nav class="bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-5 md:p-6 mb-8" aria-label="Sommaire">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Sommaire</span>
+            <ol class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-[#9ca3af] list-none">
+                <li><a href="#t1" class="hover:text-[#38bdf8] transition-colors cursor-pointer">1. Objet et éditeur</a></li>
+                <li><a href="#t2" class="hover:text-[#38bdf8] transition-colors cursor-pointer">2. Acceptation des conditions</a></li>
+                <li><a href="#t3" class="hover:text-[#38bdf8] transition-colors cursor-pointer">3. Description du Service</a></li>
+                <li><a href="#t4" class="hover:text-[#38bdf8] transition-colors cursor-pointer">4. Conditions d'utilisation légale</a></li>
+                <li><a href="#t5" class="hover:text-[#38bdf8] transition-colors cursor-pointer">5. Licence d'utilisation</a></li>
+                <li><a href="#t6" class="hover:text-[#38bdf8] transition-colors cursor-pointer">6. Responsabilités et garanties</a></li>
+                <li><a href="#t7" class="hover:text-[#38bdf8] transition-colors cursor-pointer">7. Propriété intellectuelle</a></li>
+                <li><a href="#t8" class="hover:text-[#38bdf8] transition-colors cursor-pointer">8. Données personnelles</a></li>
+                <li><a href="#t9" class="hover:text-[#38bdf8] transition-colors cursor-pointer">9. Modification des CGU</a></li>
+                <li><a href="#t10" class="hover:text-[#38bdf8] transition-colors cursor-pointer">10. Droit applicable</a></li>
+            </ol>
+        </nav>
+
+        <div class="flex flex-col gap-5">
+
+            <section id="t1" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">1</span>
+                    Objet et éditeur
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Les présentes conditions générales d'utilisation (« CGU ») régissent l'accès et l'utilisation du site <strong>controleparental.icu</strong> et du logiciel de contrôle parental qui y est proposé (le « Service »).</p>
+                    <p>Le Service est édité, conçu et développé en France <span aria-hidden="true">🇫🇷</span> par <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline">slgd.fr</a>. Pour toute question, contactez-nous à <a href="mailto:support@controleparental.icu" class="text-[#38bdf8] hover:underline">support@controleparental.icu</a>.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">2. Acceptation des conditions</h2>
-                <p>En téléchargeant, installant ou utilisant le logiciel, vous reconnaissez avoir lu, compris et accepté sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, vous devez renoncer à utiliser le Service.</p>
+            <section id="t2" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">2</span>
+                    Acceptation des conditions
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>En téléchargeant, installant ou utilisant le logiciel, vous reconnaissez avoir lu, compris et accepté sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, vous devez renoncer à utiliser le Service.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">3. Description du Service</h2>
-                <p>controleparental.icu est une application de contrôle parental pour Windows 10/11 permettant notamment la surveillance d'écran en temps réel, le blocage de sites web et de jeux, et l'accès à une console parents. Le logiciel est fourni gratuitement et fonctionne de manière auto-hébergée, sans transfert des données de surveillance vers nos serveurs.</p>
+            <section id="t3" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">3</span>
+                    Description du Service
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>controleparental.icu est une application de contrôle parental pour Windows 10/11 permettant notamment la surveillance d'écran en temps réel, le blocage de sites web et de jeux, et l'accès à une console parents. Le logiciel est fourni gratuitement et fonctionne de manière auto-hébergée, sans transfert des données de surveillance vers nos serveurs.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">4. Conditions d'utilisation légale</h2>
-                <p class="text-amber-300/90 bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3">Important : ce logiciel ne doit être installé que sur des appareils dont vous êtes propriétaire ou pour lesquels vous disposez de l'autorité légale (par exemple, en tant que parent ou tuteur d'un enfant mineur).</p>
-                <p>Vous vous engagez à utiliser le Service dans le strict respect des lois applicables. Il est notamment interdit d'utiliser le logiciel pour surveiller une personne majeure à son insu et sans son consentement, ou pour toute finalité illégale, malveillante ou portant atteinte à la vie privée d'autrui.</p>
-                <p>Vous êtes seul responsable de l'usage que vous faites du logiciel et du respect de vos obligations légales, y compris l'information des personnes concernées lorsque la loi l'exige.</p>
+            <section id="t4" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">4</span>
+                    Conditions d'utilisation légale
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p class="flex items-start gap-3 text-amber-300/90 bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3">
+                        <svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>
+                        <span><strong>Important :</strong> ce logiciel ne doit être installé que sur des appareils dont vous êtes propriétaire ou pour lesquels vous disposez de l'autorité légale (par exemple, en tant que parent ou tuteur d'un enfant mineur).</span>
+                    </p>
+                    <p>Vous vous engagez à utiliser le Service dans le strict respect des lois applicables. Il est notamment interdit d'utiliser le logiciel pour surveiller une personne majeure à son insu et sans son consentement, ou pour toute finalité illégale, malveillante ou portant atteinte à la vie privée d'autrui.</p>
+                    <p>Vous êtes seul responsable de l'usage que vous faites du logiciel et du respect de vos obligations légales, y compris l'information des personnes concernées lorsque la loi l'exige.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">5. Licence d'utilisation</h2>
-                <p>Le Service vous est concédé à titre gratuit, personnel et non exclusif, pour un usage privé. Vous vous engagez à ne pas revendre, redistribuer à titre commercial, ni modifier le logiciel d'une manière contraire aux présentes CGU.</p>
+            <section id="t5" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">5</span>
+                    Licence d'utilisation
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Le Service vous est concédé à titre gratuit, personnel et non exclusif, pour un usage privé. Vous vous engagez à ne pas revendre, redistribuer à titre commercial, ni modifier le logiciel d'une manière contraire aux présentes CGU.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">6. Responsabilités et garanties</h2>
-                <p>Le Service est fourni « en l'état », sans garantie d'aucune sorte. Nous ne garantissons pas que le logiciel fonctionnera sans interruption ni erreur, ni qu'il sera compatible avec toutes les configurations matérielles ou logicielles.</p>
-                <p>Dans les limites autorisées par la loi, l'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le Service, ni d'un usage non conforme du logiciel par l'utilisateur.</p>
+            <section id="t6" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">6</span>
+                    Responsabilités et garanties
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Le Service est fourni « en l'état », sans garantie d'aucune sorte. Nous ne garantissons pas que le logiciel fonctionnera sans interruption ni erreur, ni qu'il sera compatible avec toutes les configurations matérielles ou logicielles.</p>
+                    <p>Dans les limites autorisées par la loi, l'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le Service, ni d'un usage non conforme du logiciel par l'utilisateur.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">7. Propriété intellectuelle</h2>
-                <p>L'ensemble des éléments du site et du logiciel (marques, logos, textes, interfaces, code) sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou utilisation non autorisée est interdite.</p>
+            <section id="t7" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">7</span>
+                    Propriété intellectuelle
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>L'ensemble des éléments du site et du logiciel (marques, logos, textes, interfaces, code) sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou utilisation non autorisée est interdite.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">8. Données personnelles</h2>
-                <p>Le traitement de vos données personnelles est décrit dans notre <a href="/confidentialite.html" class="text-[#38bdf8] hover:underline">politique de confidentialité</a>.</p>
+            <section id="t8" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">8</span>
+                    Données personnelles
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Le traitement de vos données personnelles est décrit dans notre <a href="/confidentialite.html" class="text-[#38bdf8] hover:underline">politique de confidentialité</a>.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">9. Modification des CGU</h2>
-                <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. La version applicable est celle publiée sur cette page à la date de votre utilisation du Service.</p>
+            <section id="t9" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">9</span>
+                    Modification des CGU
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Nous nous réservons le droit de modifier les présentes CGU à tout moment. La version applicable est celle publiée sur cette page à la date de votre utilisation du Service.</p>
+                </div>
             </section>
 
-            <section class="flex flex-col gap-3">
-                <h2 class="font-heading text-xl font-bold text-white">10. Droit applicable</h2>
-                <p>Les présentes CGU sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+            <section id="t10" class="scroll-mt-28 bg-[#131b2e]/60 border border-[#223154] rounded-2xl p-6 md:p-8 flex flex-col gap-3">
+                <h2 class="font-heading text-lg md:text-xl font-bold text-white flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] text-sm font-bold shrink-0">10</span>
+                    Droit applicable
+                </h2>
+                <div class="text-[#cbd5e1] leading-relaxed text-sm md:text-base flex flex-col gap-3">
+                    <p>Les présentes CGU sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+                </div>
             </section>
         </div>
 
-        <div class="mt-14 pt-8 border-t border-[#223154]/50">
-            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#131b2e] border border-[#223154] rounded-full hover:border-[#38bdf8]/50 transition-all">&larr; Retour à l'accueil</a>
+        <div class="mt-10 flex flex-wrap gap-4">
+            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#131b2e] border border-[#223154] rounded-full hover:border-[#38bdf8]/50 transition-all cursor-pointer">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+                Retour à l'accueil
+            </a>
+            <a href="/confidentialite.html" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-[#9ca3af] hover:text-white transition-colors cursor-pointer">Politique de confidentialité</a>
         </div>
     </main>
 
-    <footer class="border-t border-[#223154]/50 bg-[#0b0f19] py-8">
-        <div class="max-w-3xl mx-auto px-6 text-center text-xs text-[#9ca3af] flex flex-col gap-1.5">
-            <span>&copy; 2026 controleparental.icu. Tous droits réservés.</span>
-            <span>Conçu et développé en France 🇫🇷 par <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline">slgd.fr</a></span>
+    <!-- Footer -->
+    <footer class="border-t border-[#223154]/50 bg-[#0b0f19] relative z-10 pt-12 pb-8">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                <div class="flex flex-col gap-2">
+                    <a href="/" class="flex items-center gap-2 w-fit">
+                        <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)"/>
+                            <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
+                        </svg>
+                        <span class="font-heading text-base font-bold tracking-tight text-white">controleparental<span class="text-[#38bdf8]">.icu</span></span>
+                    </a>
+                    <p class="text-xs text-[#9ca3af] max-w-xs">Contrôle parental libre et auto-hébergé pour Windows 10/11. Vos données restent chez vous.</p>
+                </div>
+                <nav class="flex flex-wrap gap-x-8 gap-y-2 text-sm font-medium text-[#9ca3af]" aria-label="Pied de page">
+                    <a href="/#features" class="hover:text-[#38bdf8] transition-colors cursor-pointer">Fonctionnalités</a>
+                    <a href="/conditions-utilisation.html" class="text-[#38bdf8] cursor-pointer">Conditions d'utilisation</a>
+                    <a href="/confidentialite.html" class="hover:text-[#38bdf8] transition-colors cursor-pointer">Confidentialité</a>
+                    <a href="mailto:support@controleparental.icu" class="hover:text-[#38bdf8] transition-colors cursor-pointer">Support</a>
+                </nav>
+            </div>
+            <div class="mt-8 pt-6 border-t border-[#223154]/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9ca3af]">
+                <span>&copy; 2026 controleparental.icu — Tous droits réservés.</span>
+                <span>Conçu et développé en France <span aria-hidden="true">🇫🇷</span> par <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline font-medium">slgd.fr</a></span>
+            </div>
         </div>
     </footer>
 </body>
