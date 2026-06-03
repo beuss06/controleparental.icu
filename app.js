@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const killBtn1 = document.getElementById('mockup-btn-kill1');
     const killBtn2 = document.getElementById('mockup-btn-kill2');
     
-    let isMockupLocked = true;
+    let isMockupLocked = false;
     let isMockupInputBlocked = false;
 
     const setMockupState = (locked) => {
