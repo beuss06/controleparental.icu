@@ -113,6 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const prefix = target.getAttribute('data-prefix') || '';
                 const suffix = target.getAttribute('data-suffix') || '';
                 const fmt = (n) => prefix + Math.floor(n).toLocaleString('fr-FR') + suffix;
+
+                // Respect reduced-motion: show the final value instantly, no count-up
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    target.innerText = fmt(targetVal);
+                    observer.unobserve(target);
+                    return;
+                }
+
                 let currentVal = 0;
 
                 // Set duration and step timing

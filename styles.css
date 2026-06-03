@@ -147,3 +147,33 @@ body > div:nth-child(2) {
 #mockup-screen-locked {
     transition: opacity 0.4s ease-in-out;
 }
+
+/* Visible keyboard focus (counters the inline focus:outline-none on nav, FAQ, buttons) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #38bdf8 !important;
+    outline-offset: 2px !important;
+    border-radius: 6px;
+}
+/* Don't show the focus ring on pointer clicks, only keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none !important;
+}
+
+/* Respect prefers-reduced-motion: disable looping orbs, count-ups, transitions */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}
