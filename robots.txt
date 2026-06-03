@@ -1,0 +1,9 @@
+# robots.txt — controleparental.icu
+User-agent: *
+Allow: /
+
+# Bloque les agents de scraping IA agressifs (optionnel — retirer si non souhaité)
+User-agent: GPTBot
+Allow: /
+
+Sitemap: https://controleparental.icu/sitemap.xml
