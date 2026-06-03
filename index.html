@@ -833,62 +833,107 @@
             <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-[#38bdf8]/10 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
             <div class="absolute -bottom-24 -right-24 w-48 h-48 rounded-full bg-[#34d399]/10 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
 
-            <span class="text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">Protection Immédiate</span>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#34d399] animate-pulse"></span> Protection Immédiate
+            </span>
             <h2 class="font-heading text-3xl md:text-5xl font-bold text-white tracking-tight max-w-2xl leading-tight">
                 Reprenez le contrôle du temps d'écran dès aujourd'hui
             </h2>
             <p class="text-sm md:text-base text-[#9ca3af] max-w-xl">
-                Téléchargez gratuitement l'installateur complet de ParentalGuard et configurez votre console en moins de 3 minutes.
+                Téléchargez gratuitement l'installateur complet de <strong>controleparental.icu</strong> (v1.2.0) et configurez votre console en moins de 3 minutes. Aucune compétence technique requise.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 mt-2">
-                <a href="#telecharger" data-download class="flex items-center justify-center gap-3 px-10 py-5 text-base font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-full hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <a href="#telecharger" data-download class="inline-flex items-center justify-center gap-3 px-10 py-5 text-base font-semibold text-white bg-gradient-to-r from-[#38bdf8] to-[#34d399] rounded-full hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
                     </svg>
                     Télécharger ParentalGuard (.exe)
                 </a>
+                <a href="#features" class="inline-flex items-center justify-center gap-2 px-8 py-5 text-base font-semibold text-[#f3f4f6] bg-[#0b0f19]/60 border border-[#223154] rounded-full hover:bg-[#1a2642] hover:border-[#38bdf8]/50 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer">
+                    Voir les fonctionnalités
+                </a>
             </div>
-            
-            <span class="text-xs text-[#9ca3af]/60 font-mono">MD5 Hash de l'installateur vérifié • 100% sans logiciel publicitaire</span>
+
+            <!-- Trust / reassurance row -->
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-4 text-xs text-[#9ca3af]">
+                <span class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#38bdf8] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"></path></svg>
+                    Windows 10 &amp; 11 (64 bits)
+                </span>
+                <span class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#34d399] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path></svg>
+                    100% gratuit
+                </span>
+                <span class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#38bdf8] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"></path></svg>
+                    Sans publicité ni mouchard
+                </span>
+                <span class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#34d399] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+                    Aucune donnée sur le cloud
+                </span>
+            </div>
         </div>
     </section>
 
     <!-- Footer Section -->
-    <footer class="border-t border-[#223154]/50 bg-[#0b0f19] relative z-10 py-12 md:py-16">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-            <!-- Brand Info -->
-            <div class="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
-                <a href="#" class="flex items-center gap-2 group">
-                    <svg class="w-6 h-6 text-[#38bdf8]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)"/>
-                        <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
-                    </svg>
-                    <span class="font-heading text-base font-bold tracking-tight text-white">
-                        controleparental<span class="text-[#38bdf8]">.icu</span>
-                    </span>
-                </a>
-                <p class="text-xs text-[#9ca3af] max-w-xs">
-                    Solution libre et auto-hébergée pour la sécurité de vos enfants en ligne. Fièrement développé pour Windows.
-                </p>
-                <p class="text-xs text-[#9ca3af]/80">
-                    Conçu et développé en France <span aria-hidden="true">🇫🇷</span> par
-                    <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline font-medium">slgd.fr</a>
-                </p>
+    <footer class="border-t border-[#223154]/50 bg-[#0b0f19] relative z-10 pt-14 md:pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8">
+                <!-- Brand Info -->
+                <div class="col-span-2 md:col-span-5 flex flex-col gap-4">
+                    <a href="#" class="flex items-center gap-2 group w-fit">
+                        <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M16 6C9 6 3 11 3 16C3 21 9 26 16 26C23 26 29 21 29 16C29 11 23 6 16 6ZM16 22.5C12.41 22.5 9.5 19.59 9.5 16C9.5 12.41 12.41 9.5 16 9.5C19.59 9.5 22.5 12.41 22.5 16C22.5 19.59 19.59 22.5 16 22.5Z" fill="url(#logoGrad)"/>
+                            <circle cx="16" cy="16" r="4.5" fill="#f3f4f6"/>
+                        </svg>
+                        <span class="font-heading text-lg font-bold tracking-tight text-white">
+                            controleparental<span class="text-[#38bdf8]">.icu</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-[#9ca3af] max-w-sm leading-relaxed">
+                        Contrôle parental libre et auto-hébergé pour Windows 10/11 : surveillance en temps réel, filtrage anti-contournement et console mobile. Vos données restent chez vous.
+                    </p>
+                    <p class="text-xs text-[#9ca3af]/80">
+                        Conçu et développé en France <span aria-hidden="true">🇫🇷</span> par
+                        <a href="https://slgd.fr" target="_blank" rel="noopener" class="text-[#38bdf8] hover:underline font-medium">slgd.fr</a>
+                    </p>
+                </div>
+
+                <!-- Produit -->
+                <nav class="md:col-span-3 flex flex-col gap-3" aria-label="Produit">
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">Produit</span>
+                    <a href="#features" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Fonctionnalités</a>
+                    <a href="#console-preview" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Console Parents</a>
+                    <a href="#faq" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">FAQ</a>
+                    <a href="#telecharger" data-download class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Télécharger</a>
+                </nav>
+
+                <!-- Légal -->
+                <nav class="md:col-span-2 flex flex-col gap-3" aria-label="Légal">
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">Légal</span>
+                    <a href="/conditions-utilisation.html" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Conditions d'utilisation</a>
+                    <a href="/confidentialite.html" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Confidentialité</a>
+                </nav>
+
+                <!-- Support -->
+                <div class="md:col-span-2 flex flex-col gap-3">
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">Support</span>
+                    <a href="mailto:support@controleparental.icu" class="inline-flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path></svg>
+                        Support
+                    </a>
+                    <a href="mailto:contact@controleparental.icu" class="text-sm text-[#9ca3af] hover:text-[#38bdf8] transition-colors cursor-pointer w-fit">Contact</a>
+                </div>
             </div>
 
-            <!-- Footer Links -->
-            <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-xs md:text-sm font-medium text-[#9ca3af]">
-                <a href="/conditions-utilisation.html" class="hover:text-white transition-colors cursor-pointer">Conditions d'Utilisation</a>
-                <a href="/confidentialite.html" class="hover:text-white transition-colors cursor-pointer">Politique de Confidentialité</a>
-                <a href="mailto:support@controleparental.icu" class="hover:text-white transition-colors cursor-pointer">Contact Support</a>
-                <a href="#telecharger" data-download class="hover:text-white transition-colors cursor-pointer">Lien d'Installation Direct</a>
-            </div>
-
-            <!-- Copyright and version -->
-            <div class="text-center md:text-right flex flex-col gap-2">
-                <span class="text-xs text-[#9ca3af]">&copy; 2026 controleparental.icu. Tous droits réservés.</span>
-                <span class="text-[10px] text-[#9ca3af]/50 font-mono">v1.2.0 Stable • Fait avec passion</span>
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-6 border-t border-[#223154]/50 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <span class="text-xs text-[#9ca3af]">&copy; 2026 controleparental.icu — Tous droits réservés.</span>
+                <span class="inline-flex items-center gap-2 text-[10px] text-[#9ca3af]/60 font-mono">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></span> v1.2.0 Stable • Windows 10 &amp; 11
+                </span>
             </div>
         </div>
     </footer>
