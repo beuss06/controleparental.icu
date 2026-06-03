@@ -27,6 +27,13 @@ html {
     scroll-padding-top: 100px;
 }
 
+/* Contain decorative off-screen glow orbs so they never create horizontal scroll
+   (body alone doesn't clip the page-level overflow on mobile) */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 /* Base Body Styles */
 body {
     font-family: 'Inter', sans-serif;
