@@ -201,6 +201,16 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     box-shadow: 0 0 0 4px rgba(34, 211, 197, 0.12);
 }
 
+/* Free badge — variant accentué turquoise */
+.cp-badge-free {
+    background: linear-gradient(135deg,
+        rgba(34, 211, 197, 0.18),
+        rgba(40, 211, 154, 0.12));
+    border-color: rgba(34, 211, 197, 0.32);
+    color: var(--cp-secondary);
+}
+.cp-badge-free svg { color: var(--cp-secondary); }
+
 .cp-pill {
     display: inline-flex;
     align-items: center;
