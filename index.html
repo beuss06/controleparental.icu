@@ -816,10 +816,11 @@
                 <div class="cp-card relative overflow-hidden aspect-[4/5] flex items-end">
                     <!-- Real family photo (drop file at /family-photo.jpg).
                          If missing, the SVG illustration below shows through. -->
-                    <img src="/family-photo.jpg?v=20260616"
+                    <img src="/family-photo.jpg?v=20260616-3"
                          alt="Une famille découvre ensemble l'usage d'un ordinateur dans une ambiance chaleureuse"
                          class="absolute inset-0 w-full h-full object-cover object-top"
-                         loading="lazy"
+                         loading="eager"
+                         decoding="async"
                          onerror="this.style.display='none';">
 
                     <!-- Fallback illustration (visible only if image is missing) -->
