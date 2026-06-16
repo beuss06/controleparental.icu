@@ -1,7 +1,8 @@
-// app.js
+// app.js — ControleParental.icu
+// Comportement : nav mobile, scroll navbar, FAQ, compteurs, mockup hero, démonstrateur console.
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ==========================================
     // 1. Mobile Menu Toggle
     // ==========================================
@@ -11,44 +12,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnLine2 = document.getElementById('btn-line2');
     const btnLine3 = document.getElementById('btn-line3');
 
+    const setMobileMenuOpen = (open) => {
+        if (!mobileMenu) return;
+        if (open) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            btnLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            btnLine2.style.opacity = '0';
+            btnLine3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            btnLine1.style.transform = 'none';
+            btnLine2.style.opacity = '1';
+            btnLine3.style.transform = 'none';
+            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    };
+
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isOpen = mobileMenu.classList.contains('hidden');
-            
-            if (isOpen) {
-                mobileMenu.classList.remove('hidden');
-                // Animate hamburger to X
-                btnLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                btnLine2.style.opacity = '0';
-                btnLine3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
-            } else {
-                mobileMenu.classList.add('hidden');
-                // Animate X to hamburger
-                btnLine1.style.transform = 'none';
-                btnLine2.style.opacity = '1';
-                btnLine3.style.transform = 'none';
-            }
+            const isHidden = mobileMenu.classList.contains('hidden');
+            setMobileMenuOpen(isHidden);
         });
 
         // Close menu on navigation click
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                btnLine1.style.transform = 'none';
-                btnLine2.style.opacity = '1';
-                btnLine3.style.transform = 'none';
-            });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setMobileMenuOpen(false));
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenu.classList.contains('hidden') && !menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                btnLine1.style.transform = 'none';
-                btnLine2.style.opacity = '1';
-                btnLine3.style.transform = 'none';
+                setMobileMenuOpen(false);
+            }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                setMobileMenuOpen(false);
             }
         });
     }
@@ -71,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. FAQ Accordion Toggle
     // ==========================================
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const trigger = item.querySelector('.faq-trigger');
         const content = item.querySelector('.faq-content');
@@ -79,11 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (trigger && content) {
             trigger.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
+
                 // Close other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
                         otherItem.classList.remove('active');
+                        const t = otherItem.querySelector('.faq-trigger');
+                        if (t) t.setAttribute('aria-expanded', 'false');
                         otherItem.querySelector('.faq-content').style.maxHeight = '0';
                     }
                 });
@@ -91,9 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Toggle current item
                 if (isActive) {
                     item.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
                     content.style.maxHeight = '0';
                 } else {
                     item.classList.add('active');
+                    trigger.setAttribute('aria-expanded', 'true');
                     content.style.maxHeight = content.scrollHeight + 'px';
                 }
             });
@@ -104,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Dynamic Stats Counter
     // ==========================================
     const statsNumbers = document.querySelectorAll('.stats-number');
-    
+
     const startCounting = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -114,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const suffix = target.getAttribute('data-suffix') || '';
                 const fmt = (n) => prefix + Math.floor(n).toLocaleString('fr-FR') + suffix;
 
-                // Respect reduced-motion: show the final value instantly, no count-up
+                // Respect reduced-motion
                 if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     target.innerText = fmt(targetVal);
                     observer.unobserve(target);
@@ -122,9 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 let currentVal = 0;
-
-                // Set duration and step timing
-                const duration = 1500; // 1.5 seconds total
+                const duration = 1500;
                 const steps = 60;
                 const increment = targetVal / steps;
                 const stepTime = duration / steps;
@@ -138,20 +147,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         target.innerText = fmt(currentVal);
                     }
                 }, stepTime);
-                
-                observer.unobserve(target); // Only count up once
+
+                observer.unobserve(target);
             }
         });
     };
 
-    const countObserver = new IntersectionObserver(startCounting, {
-        threshold: 0.5
-    });
-
+    const countObserver = new IntersectionObserver(startCounting, { threshold: 0.5 });
     statsNumbers.forEach(num => countObserver.observe(num));
 
     // ==========================================
-    // 5. Hero Screen Mockup Interactive controls
+    // 5. Hero Mockup interactive controls
     // ==========================================
     const mockupScreenGame = document.getElementById('mockup-screen-game');
     const mockupScreenLocked = document.getElementById('mockup-screen-locked');
@@ -160,56 +166,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const mockupStatusText = document.getElementById('mockup-status-text');
     const mockupActionLock = document.getElementById('mockup-action-lock');
     const mockupActionInput = document.getElementById('mockup-action-input');
-    const killBtn1 = document.getElementById('mockup-btn-kill1');
-    const killBtn2 = document.getElementById('mockup-btn-kill2');
-    
+
     let isMockupLocked = false;
     let isMockupInputBlocked = false;
 
     const setMockupState = (locked) => {
+        if (!mockupScreenGame || !mockupScreenLocked) return;
         isMockupLocked = locked;
         if (locked) {
-            // Screen is locked
             mockupScreenGame.classList.add('opacity-0');
             mockupScreenGame.classList.remove('opacity-100');
             mockupScreenLocked.classList.add('opacity-100');
             mockupScreenLocked.classList.remove('opacity-0');
-            
-            // Indicator lights red
-            mockupIndicator.className = 'inline-block w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse';
-            mockupIndicatorText.innerText = 'Écran Verrouillé';
-            mockupIndicatorText.className = 'text-xs text-red-500 font-medium';
-            
-            // Lock control button status
-            mockupStatusText.innerText = 'Actif';
-            mockupStatusText.className = 'text-xs font-semibold text-red-400 mt-1';
-            mockupActionLock.innerText = 'Déverrouiller';
-            mockupActionLock.className = 'w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-xs font-semibold text-white rounded-lg transition-colors cursor-pointer';
+
+            if (mockupIndicator) {
+                mockupIndicator.className = 'inline-block w-2.5 h-2.5 rounded-full bg-[#48b7ff] animate-pulse';
+            }
+            if (mockupIndicatorText) {
+                mockupIndicatorText.innerText = 'Appareil en pause';
+                mockupIndicatorText.className = 'text-xs text-[#48b7ff] font-medium';
+            }
+            if (mockupStatusText) {
+                mockupStatusText.innerText = 'Pause active';
+                mockupStatusText.className = 'text-xs font-semibold text-[#48b7ff] mt-1';
+            }
+            if (mockupActionLock) {
+                mockupActionLock.innerText = 'Réactiver';
+                mockupActionLock.className = 'w-full py-2 bg-[#22d3c5] hover:brightness-110 text-xs font-semibold text-[#061426] rounded-lg transition-all cursor-pointer';
+            }
         } else {
-            // Screen is active (game)
             mockupScreenGame.classList.add('opacity-100');
             mockupScreenGame.classList.remove('opacity-0');
             mockupScreenLocked.classList.add('opacity-0');
             mockupScreenLocked.classList.remove('opacity-100');
-            
-            // Indicator lights green
-            mockupIndicator.className = 'inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse';
-            mockupIndicatorText.innerText = 'Session Active';
-            mockupIndicatorText.className = 'text-xs text-emerald-400 font-medium';
-            
-            // Lock control button status
-            mockupStatusText.innerText = 'Désactivé';
-            mockupStatusText.className = 'text-xs font-semibold text-[#9ca3af] mt-1';
-            mockupActionLock.innerText = 'Verrouiller';
-            mockupActionLock.className = 'w-full py-2 bg-red-600 hover:bg-red-500 text-xs font-semibold text-white rounded-lg transition-colors cursor-pointer';
+
+            if (mockupIndicator) {
+                mockupIndicator.className = 'inline-block w-2.5 h-2.5 rounded-full bg-[#28d39a] animate-pulse';
+            }
+            if (mockupIndicatorText) {
+                mockupIndicatorText.innerText = 'Protection active';
+                mockupIndicatorText.className = 'text-xs text-[#28d39a] font-medium';
+            }
+            if (mockupStatusText) {
+                mockupStatusText.innerText = 'Disponible';
+                mockupStatusText.className = 'text-xs font-semibold text-[#aab7c9] mt-1';
+            }
+            if (mockupActionLock) {
+                mockupActionLock.innerText = 'Mettre en pause';
+                mockupActionLock.className = 'w-full py-2 bg-[#258bff] hover:brightness-110 text-xs font-semibold text-white rounded-lg transition-all cursor-pointer';
+            }
         }
     };
 
-    // Toggle state on action buttons click
     if (mockupActionLock) {
         mockupActionLock.addEventListener('click', () => {
             setMockupState(!isMockupLocked);
-            addDemoLog(isMockupLocked ? "lock" : "unlock", isMockupLocked ? "Temps de pause" : "");
+            addDemoLog(isMockupLocked ? 'lock' : 'unlock', isMockupLocked ? 'Pause famille' : '');
         });
     }
 
@@ -217,38 +229,19 @@ document.addEventListener('DOMContentLoaded', () => {
         mockupActionInput.addEventListener('click', () => {
             isMockupInputBlocked = !isMockupInputBlocked;
             if (isMockupInputBlocked) {
-                mockupActionInput.innerText = 'Débloquer Entrées';
-                mockupActionInput.className = 'w-full py-2 bg-orange-600 hover:bg-orange-500 text-xs font-semibold text-white rounded-lg transition-colors cursor-pointer';
-                addDemoLog("blockinput", "true");
+                mockupActionInput.innerText = 'Réactiver les entrées';
+                mockupActionInput.className = 'w-full py-2 bg-[#f59e0b] hover:brightness-110 text-xs font-semibold text-white rounded-lg transition-all cursor-pointer';
+                addDemoLog('blockinput', 'true');
             } else {
-                mockupActionInput.innerText = 'Bloquer Clavier/Souris';
-                mockupActionInput.className = 'w-full py-2 bg-[#223154] hover:bg-[#3b82f6]/20 hover:text-[#38bdf8] text-xs font-semibold text-white rounded-lg transition-colors border border-[#223154] cursor-pointer';
-                addDemoLog("blockinput", "false");
+                mockupActionInput.innerText = 'Suspendre les entrées';
+                mockupActionInput.className = 'w-full py-2 bg-[#102641] hover:bg-[#48b7ff]/15 hover:text-[#48b7ff] text-xs font-semibold text-white rounded-lg transition-colors border border-[#48b7ff]/15 cursor-pointer';
+                addDemoLog('blockinput', 'false');
             }
         });
     }
 
-    // Process kill buttons action simulator
-    const setupKillBtn = (btn, processName, pid, logAction) => {
-        if (btn) {
-            btn.addEventListener('click', () => {
-                const row = btn.closest('div.flex');
-                if (row) {
-                    row.style.opacity = '0.3';
-                    btn.disabled = true;
-                    btn.innerText = 'Fermé';
-                    btn.className = 'px-3 py-1 bg-gray-800 text-gray-500 rounded border border-gray-700 text-[10px] font-bold cursor-not-allowed';
-                    addDemoLog("killprocess", pid);
-                }
-            });
-        }
-    };
-
-    setupKillBtn(killBtn1, "Minecraft.exe", "9024");
-    setupKillBtn(killBtn2, "Discord.exe", "5120");
-
     // ==========================================
-    // 6. Interactive Web Console Showcase Logs
+    // 6. Interactive Console Showcase Logs
     // ==========================================
     const demoButtons = document.querySelectorAll('.demo-btn');
     const demoLogsContainer = document.getElementById('demo-logs-container');
@@ -256,90 +249,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addDemoLog = (action, parameter = '') => {
         if (!demoLogsContainer) return;
-        
+
         const now = new Date();
         const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-        
-        let logs = [];
-        
-        // Match C# Agent API exactly
-        switch(action.toLowerCase()) {
+
+        const logs = [];
+
+        switch (action.toLowerCase()) {
             case 'lock':
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: lock, Paramètre: "${parameter || 'Verrouillage à distance'}"</div>`);
-                logs.push(`<div class="text-red-400">[${timeStr}] Lancement du composant de blocage d'écran (ScreenLockManager)...</div>`);
-                logs.push(`<div class="text-red-500 font-bold">[${timeStr}] ÉCRAN VERROUILLÉ. Clavier et souris bloqués avec succès.</div>`);
-                
-                // Sync Hero Mockup
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action demandée : mise en pause — "${parameter || 'Pause demandée'}"</div>`);
+                logs.push(`<div class="text-[#48b7ff]">[${timeStr}] L'appareil est mis en pause...</div>`);
+                logs.push(`<div class="text-[#48b7ff] font-bold">[${timeStr}] Appareil en pause. Les entrées sont neutralisées.</div>`);
                 setMockupState(true);
                 break;
             case 'unlock':
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: unlock</div>`);
-                logs.push(`<div class="text-emerald-400">[${timeStr}] Libération des ressources de blocage par le ScreenLockManager...</div>`);
-                logs.push(`<div class="text-emerald-500 font-bold">[${timeStr}] Écran déverrouillé. Interface utilisateur restaurée.</div>`);
-                
-                // Sync Hero Mockup
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action demandée : réactivation</div>`);
+                logs.push(`<div class="text-[#28d39a]">[${timeStr}] L'appareil reprend son fonctionnement normal.</div>`);
+                logs.push(`<div class="text-[#28d39a] font-bold">[${timeStr}] Session réactivée. Bon usage.</div>`);
                 setMockupState(false);
                 break;
-            case 'blockinput':
+            case 'blockinput': {
                 const blockVal = parameter === 'true';
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: blockinput, Paramètre: ${parameter}</div>`);
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action : suspension des entrées (${parameter})</div>`);
                 if (blockVal) {
-                    logs.push(`<div class="text-orange-400">[${timeStr}] Blocage système activé : clavier et souris physiques verrouillés.</div>`);
+                    logs.push(`<div class="text-[#f59e0b]">[${timeStr}] Clavier et souris suspendus.</div>`);
                 } else {
-                    logs.push(`<div class="text-emerald-400">[${timeStr}] Entrées utilisateur réactivées.</div>`);
+                    logs.push(`<div class="text-[#28d39a]">[${timeStr}] Clavier et souris réactivés.</div>`);
                 }
                 break;
+            }
             case 'screenpower':
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: screenpower, Paramètre: ${parameter}</div>`);
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action : alimentation de l'écran (${parameter})</div>`);
                 if (parameter === 'off') {
-                    logs.push(`<div class="text-red-400">[${timeStr}] Arrêt de l'alimentation logique de l'écran cible (SetScreenPower).</div>`);
+                    logs.push(`<div class="text-[#48b7ff]">[${timeStr}] Écran mis en veille.</div>`);
                 } else {
-                    logs.push(`<div class="text-emerald-400">[${timeStr}] Remise sous tension logique de l'écran cible.</div>`);
+                    logs.push(`<div class="text-[#28d39a]">[${timeStr}] Écran réactivé.</div>`);
                 }
                 break;
             case 'killprocess':
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: killprocess, PID: ${parameter}</div>`);
-                logs.push(`<div class="text-orange-400">[${timeStr}] Envoi du signal de fermeture de force au processus PID ${parameter}...</div>`);
-                logs.push(`<div class="text-[#34d399] font-semibold">[${timeStr}] Succès: Arbre du processus PID ${parameter} tué de force.</div>`);
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action : fermeture d'une application (réf. ${parameter})</div>`);
+                logs.push(`<div class="text-[#f59e0b]">[${timeStr}] Demande de fermeture transmise...</div>`);
+                logs.push(`<div class="text-[#28d39a] font-semibold">[${timeStr}] Application fermée avec succès.</div>`);
                 break;
             case 'setkeywords':
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande reçue - Action: setkeywords, Mots-clés: "${parameter}"</div>`);
-                logs.push(`<div class="text-[#38bdf8]">[${timeStr}] Écriture des nouvelles règles dans le fichier hosts local...</div>`);
-                logs.push(`<div class="text-emerald-400">[${timeStr}] FlushDNS système effectué. Règles hosts rechargées.</div>`);
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action : ajout de mots-clés filtrés — "${parameter}"</div>`);
+                logs.push(`<div class="text-[#48b7ff]">[${timeStr}] Mise à jour des règles locales...</div>`);
+                logs.push(`<div class="text-[#28d39a]">[${timeStr}] Règles appliquées. Filtrage actif.</div>`);
                 break;
             default:
-                logs.push(`<div class="text-[#9ca3af]">[${timeStr}] Commande inconnue reçue - Action: ${action}</div>`);
+                logs.push(`<div class="text-[#aab7c9]">[${timeStr}] Action inconnue : ${action}</div>`);
         }
-        
-        logs.forEach(logHtml => {
-            demoLogsContainer.insertAdjacentHTML('beforeend', logHtml);
-        });
-        
-        // Auto scroll to bottom
+
+        logs.forEach(logHtml => demoLogsContainer.insertAdjacentHTML('beforeend', logHtml));
         demoLogsContainer.scrollTop = demoLogsContainer.scrollHeight;
     };
 
-    // Attach actions to demo buttons
     demoButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const action = btn.getAttribute('data-action');
             const param = btn.getAttribute('data-param') || '';
-            
-            // Add styling feedback on click
-            btn.classList.add('scale-95', 'bg-[#38bdf8]/20');
+
+            btn.classList.add('scale-95', 'bg-[#48b7ff]/15');
             setTimeout(() => {
-                btn.classList.remove('scale-95', 'bg-[#38bdf8]/20');
+                btn.classList.remove('scale-95', 'bg-[#48b7ff]/15');
             }, 150);
 
             addDemoLog(action, param);
         });
     });
 
-    // Clear logs button
     if (clearDemoLogs) {
         clearDemoLogs.addEventListener('click', () => {
             if (demoLogsContainer) {
-                demoLogsContainer.innerHTML = `<div class="text-[#9ca3af]">[${new Date().toLocaleTimeString('fr-FR')}] Console d'agent vidée. En attente de commandes...</div>`;
+                const now = new Date().toLocaleTimeString('fr-FR');
+                demoLogsContainer.innerHTML = `<div class="text-[#aab7c9]">[${now}] Journal vidé. En attente d'une action...</div>`;
             }
         });
     }
@@ -347,13 +330,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 7. Track mouse for card glow hover effects
     // ==========================================
-    const cards = document.querySelectorAll('.glow-on-hover, .faq-item, #features > div > div');
+    const cards = document.querySelectorAll('.glow-on-hover');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
         });

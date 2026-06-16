@@ -1,13 +1,13 @@
 {
   "name": "ControleParental.icu — Contrôle parental Windows",
   "short_name": "ControleParental",
-  "description": "Application de contrôle parental nouvelle génération pour Windows : surveillance en temps réel, blocage de contenu et console web mobile.",
+  "description": "Solution de contrôle parental pour Windows 10 et 11 : gestion du temps d'écran, filtrage des contenus dangereux, console parents accessible depuis mobile.",
   "lang": "fr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0b0f19",
-  "theme_color": "#0b0f19",
+  "background_color": "#061426",
+  "theme_color": "#061426",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
