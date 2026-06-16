@@ -328,7 +328,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 7. Track mouse for card glow hover effects
+    // 7. Reveal-on-scroll
+    // ==========================================
+    const reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion) {
+        const revealTargets = document.querySelectorAll(
+            'section .cp-section-heading, section .cp-card, section .grid > div'
+        );
+        revealTargets.forEach(el => el.classList.add('reveal'));
+
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+        revealTargets.forEach(el => revealObserver.observe(el));
+    }
+
+    // ==========================================
+    // 8. Track mouse for card glow hover effects
     // ==========================================
     const cards = document.querySelectorAll('.glow-on-hover');
     cards.forEach(card => {

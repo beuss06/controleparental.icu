@@ -62,7 +62,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260616">
 
     <!-- Structured data (JSON-LD) -->
     <script type="application/ld+json">
@@ -254,7 +254,7 @@
         <div class="cp-grid-bg"></div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative">
             <!-- Left Info Panel -->
-            <div class="lg:col-span-6 flex flex-col gap-6 text-center lg:text-left">
+            <div class="lg:col-span-6 flex flex-col gap-6 text-center lg:text-left hero-rise">
                 <!-- Tagline badge -->
                 <span class="cp-badge self-center lg:self-start">
                     <span class="cp-status-dot"></span>
@@ -262,12 +262,12 @@
                 </span>
 
                 <!-- Headline -->
-                <h1 class="font-heading hero-title font-bold tracking-tight text-white">
+                <h1 class="font-heading hero-title tracking-tight text-white">
                     La confiance n'exclut pas <span class="cp-text-gradient">le contrôle.</span>
                 </h1>
 
                 <!-- Subheadline -->
-                <p class="text-base sm:text-lg text-[#d7e0ec] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p class="hero-subtitle max-w-xl mx-auto lg:mx-0">
                     Protégez vos enfants dans leur vie numérique sans rompre le dialogue.
                     <strong class="text-white">ControleParental.icu</strong> vous aide à prévenir les dangers, gérer le temps d'écran et accompagner chaque usage — depuis une console claire, accessible où que vous soyez.
                 </p>
@@ -307,8 +307,8 @@
             </div>
 
             <!-- Right Interactive Mockup Panel -->
-            <div class="lg:col-span-6 flex justify-center">
-                <div class="w-full max-w-xl cp-card overflow-hidden relative group">
+            <div class="lg:col-span-6 flex justify-center hero-mockup-in">
+                <div class="w-full max-w-xl cp-card overflow-hidden relative group hero-mockup-float">
                     <!-- Glass Gloss Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 pointer-events-none"></div>
 
@@ -700,46 +700,69 @@
                 </ul>
             </div>
 
-            <!-- Family visual placeholder -->
+            <!-- Family photo + overlay -->
             <div class="lg:col-span-5 order-1 lg:order-2">
-                <div class="cp-card p-6 sm:p-8 relative overflow-hidden aspect-square sm:aspect-[4/5] flex flex-col justify-between">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#258bff]/15 via-transparent to-[#22d3c5]/15 pointer-events-none"></div>
-                    <div class="relative flex flex-col gap-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-[#48b7ff]/20 border border-[#48b7ff]/30 flex items-center justify-center text-[#48b7ff]">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <div>
-                                <p class="text-sm text-white font-semibold">Léa, 11 ans</p>
-                                <p class="text-xs text-[#aab7c9]">Profil "Collège"</p>
-                            </div>
-                            <span class="ml-auto cp-pill text-[#28d39a] border-[#28d39a]/30 bg-[#28d39a]/10">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
-                                En ligne
-                            </span>
-                        </div>
-                        <div class="cp-card-soft p-4 flex flex-col gap-2">
-                            <p class="text-xs text-[#aab7c9] uppercase tracking-wider font-bold">Temps d'écran aujourd'hui</p>
-                            <p class="text-2xl font-heading font-bold text-white">1 h 42</p>
-                            <div class="relative h-1.5 rounded-full bg-[#48b7ff]/15 overflow-hidden">
-                                <span class="absolute inset-y-0 left-0 w-2/3 rounded-full" style="background: var(--cp-gradient-brand);"></span>
-                            </div>
-                            <p class="text-[11px] text-[#aab7c9]">2 h 30 autorisées avant 19h00</p>
-                        </div>
-                    </div>
-                    <div class="relative flex flex-col gap-3 mt-6">
-                        <p class="text-xs text-[#aab7c9] uppercase tracking-wider font-bold">Prochaine règle</p>
-                        <div class="cp-card-soft p-4 flex items-center gap-3">
-                            <span class="cp-icon-tile" style="width:2.5rem; height:2.5rem;">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </span>
-                            <div class="flex flex-col">
-                                <span class="text-sm text-white font-semibold">Pause à 20h00</span>
-                                <span class="text-xs text-[#aab7c9]">Coucher en douceur</span>
-                            </div>
-                        </div>
+                <div class="cp-card relative overflow-hidden aspect-[4/5] flex items-end">
+                    <!-- Real family photo (drop file at /family-photo.jpg).
+                         If missing, the SVG illustration below shows through. -->
+                    <img src="/family-photo.jpg"
+                         alt="Un parent accompagne son enfant devant un ordinateur portable, ambiance chaleureuse"
+                         class="absolute inset-0 w-full h-full object-cover"
+                         loading="lazy"
+                         onerror="this.style.display='none';">
+
+                    <!-- Fallback illustration (visible only if image is missing) -->
+                    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="famBg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#0b203a"/>
+                                <stop offset="55%" stop-color="#102641"/>
+                                <stop offset="100%" stop-color="#061426"/>
+                            </linearGradient>
+                            <linearGradient id="famGlow" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#258bff" stop-opacity="0.55"/>
+                                <stop offset="100%" stop-color="#22d3c5" stop-opacity="0.45"/>
+                            </linearGradient>
+                            <radialGradient id="famLamp" cx="0.3" cy="0.2" r="0.8">
+                                <stop offset="0%" stop-color="#f7faff" stop-opacity="0.18"/>
+                                <stop offset="100%" stop-color="#f7faff" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="400" height="500" fill="url(#famBg)"/>
+                        <ellipse cx="120" cy="120" rx="180" ry="160" fill="url(#famLamp)"/>
+                        <!-- Window with warm light -->
+                        <rect x="40" y="60" width="120" height="160" rx="8" fill="#152e4d" stroke="#48b7ff" stroke-opacity="0.25"/>
+                        <rect x="48" y="68" width="104" height="144" rx="4" fill="url(#famGlow)" opacity="0.35"/>
+                        <line x1="100" y1="60" x2="100" y2="220" stroke="#48b7ff" stroke-opacity="0.2"/>
+                        <line x1="40" y1="140" x2="160" y2="140" stroke="#48b7ff" stroke-opacity="0.2"/>
+                        <!-- Parent silhouette -->
+                        <circle cx="230" cy="280" r="34" fill="#1a3a5e"/>
+                        <path d="M180 380 Q230 320 280 380 L290 460 L170 460 Z" fill="#1a3a5e"/>
+                        <!-- Child silhouette next to parent -->
+                        <circle cx="290" cy="320" r="26" fill="#22324e"/>
+                        <path d="M254 400 Q290 360 326 400 L334 460 L246 460 Z" fill="#22324e"/>
+                        <!-- Laptop -->
+                        <rect x="200" y="395" width="130" height="62" rx="6" fill="#152e4d" stroke="#48b7ff" stroke-opacity="0.3"/>
+                        <rect x="208" y="403" width="114" height="40" rx="3" fill="url(#famGlow)"/>
+                        <rect x="190" y="455" width="150" height="6" rx="3" fill="#102641"/>
+                    </svg>
+
+                    <!-- Bottom gradient veil for caption legibility -->
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#040d1a] via-[#040d1a]/85 to-transparent pointer-events-none"></div>
+
+                    <!-- Floating caption card -->
+                    <div class="relative w-full p-5 sm:p-6 flex flex-col gap-3">
+                        <span class="cp-pill self-start">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
+                            Vie de famille
+                        </span>
+                        <p class="text-base sm:text-lg text-white font-heading font-semibold leading-snug">
+                            « On a posé des règles claires, et on parle d'écran sereinement. »
+                        </p>
+                        <p class="text-xs text-[#aab7c9]">— Émilie, maman de Léa (11 ans) et Hugo (8 ans)</p>
                     </div>
                 </div>
+                <p class="text-[10px] text-[#aab7c9]/60 text-center mt-3">Visuel d'illustration · Remplacez <code>/family-photo.jpg</code> par votre photo</p>
             </div>
         </div>
     </section>
@@ -1312,7 +1335,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=20260616"></script>
     <script>
     (function () {
         var modal = document.getElementById('dl-modal');
