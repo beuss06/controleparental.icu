@@ -474,7 +474,218 @@ button:focus:not(:focus-visible) {
 }
 
 /* =====================================================
-   10. Reduced motion
+   10. "Vigilance Calme" — primitives éditoriales
+   ===================================================== */
+
+/* Mono caps eyebrow — utilisé pour les "/ 01 — Section" */
+.cp-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--cp-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.cp-eyebrow::before {
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cp-primary-light));
+}
+.cp-eyebrow .cp-eyebrow-num {
+    color: var(--cp-primary-light);
+    font-weight: 700;
+}
+
+/* Subtle anti-banding noise overlay — appliqué globalement via body::before */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Architectural grid background — version raffinée plus discrète */
+.cp-architecture-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right,
+            rgba(72, 183, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom,
+            rgba(72, 183, 255, 0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 75%);
+}
+
+/* Aurora glow — halo radial chaud-froid derrière le hero */
+.cp-aurora {
+    position: absolute;
+    inset: -10% -5% auto -5%;
+    height: 75vh;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 50% 60% at 30% 40%,
+            rgba(37, 139, 255, 0.22), transparent 60%),
+        radial-gradient(ellipse 40% 50% at 75% 25%,
+            rgba(34, 211, 197, 0.18), transparent 60%);
+    filter: blur(20px);
+}
+
+/* Live ticker — sous le hero, KPI en chiffres tabulaires */
+.cp-ticker {
+    border-top: 1px solid var(--cp-border);
+    border-bottom: 1px solid var(--cp-border);
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(11, 32, 58, 0.45) 50%,
+        transparent 100%);
+}
+.cp-ticker-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--cp-text);
+}
+
+/* Breathing live dot — halo qui respire (signal système en vie, sans tape-à-l'œil) */
+@keyframes breathe {
+    0%, 100% {
+        box-shadow:
+            0 0 0 0 rgba(40, 211, 154, 0.6),
+            0 0 0 4px rgba(40, 211, 154, 0.18);
+    }
+    50% {
+        box-shadow:
+            0 0 0 6px rgba(40, 211, 154, 0),
+            0 0 0 4px rgba(40, 211, 154, 0.18);
+    }
+}
+.cp-live-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--cp-success);
+    animation: breathe 2.4s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+/* Inset highlight on primary button — effet verre haut de bouton */
+.cp-button-primary {
+    position: relative;
+    overflow: hidden;
+}
+.cp-button-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.22),
+        rgba(255, 255, 255, 0) 45%);
+    pointer-events: none;
+}
+.cp-button-primary > * { position: relative; z-index: 1; }
+
+/* Card border sweep on hover — un trait lumineux balaie l'angle */
+.cp-card {
+    position: relative;
+    isolation: isolate;
+}
+.cp-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        transparent 30%,
+        rgba(72, 183, 255, 0.35) 50%,
+        transparent 70%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.cp-card:hover::after { opacity: 1; }
+
+/* Section divider — fin trait gradient sous chaque grand titre */
+.cp-section-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--cp-border-strong) 30%,
+        var(--cp-border-strong) 70%,
+        transparent);
+}
+
+/* Bento — la première card du grid features prend 2 colonnes en desktop */
+@media (min-width: 1024px) {
+    .cp-bento > .cp-card:first-child {
+        grid-column: span 2;
+    }
+}
+
+/* Marquee for ticker rail */
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.cp-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    will-change: transform;
+}
+.cp-marquee-mask {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.cp-marquee:hover { animation-play-state: paused; }
+
+/* Form input refinement */
+.cp-input {
+    background: var(--cp-background);
+    border: 1px solid var(--cp-border);
+    border-radius: var(--cp-radius-md);
+    color: var(--cp-text);
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+    width: 100%;
+    padding: 0.85rem 1rem;
+}
+.cp-input::placeholder { color: rgba(170, 183, 201, 0.5); }
+.cp-input:focus,
+.cp-input:focus-visible {
+    border-color: var(--cp-primary-light);
+    box-shadow: 0 0 0 3px rgba(72, 183, 255, 0.15);
+    outline: none;
+}
+.cp-input[aria-invalid="true"] {
+    border-color: var(--cp-danger);
+    box-shadow: 0 0 0 3px rgba(239, 64, 80, 0.15);
+}
+
+/* Subtle press feedback (calmer than scale-95) */
+.cp-press:active { transform: translateY(1px); }
+
+/* =====================================================
+   11. Reduced motion
    ===================================================== */
 @media (prefers-reduced-motion: reduce) {
     *,

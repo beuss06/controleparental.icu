@@ -47,7 +47,7 @@
     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -62,7 +62,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css?v=20260616">
+    <link rel="stylesheet" href="styles.css?v=20260616-2">
 
     <!-- Structured data (JSON-LD) -->
     <script type="application/ld+json">
@@ -251,7 +251,8 @@
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-16 md:pt-40 md:pb-24 max-w-7xl mx-auto px-6 z-10">
-        <div class="cp-grid-bg"></div>
+        <div class="cp-aurora"></div>
+        <div class="cp-architecture-grid"></div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative">
             <!-- Left Info Panel -->
             <div class="lg:col-span-6 flex flex-col gap-6 text-center lg:text-left hero-rise">
@@ -473,8 +474,64 @@
         </div>
     </section>
 
+    <!-- Live ticker (real activity) -->
+    <section class="relative z-10 cp-ticker py-3" aria-label="Activité en temps réel">
+        <div class="cp-marquee-mask">
+            <div class="cp-marquee gap-10 px-6 text-sm">
+                <!-- Group 1 -->
+                <div class="flex items-center gap-10 shrink-0">
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-live-dot" aria-hidden="true"></span>
+                        Service de protection actif <span class="cp-ticker-num">24/7</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-ticker-num">430 000+</span> sites filtrés en permanence
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        Mise à jour des listes <span class="cp-ticker-num">toutes les 24 h</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-ticker-num">VPN, Tor &amp; DoH</span> bloqués par défaut
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        Console parents accessible depuis <span class="cp-ticker-num">tout mobile</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                </div>
+                <!-- Group 2 (duplicate for seamless marquee) -->
+                <div class="flex items-center gap-10 shrink-0" aria-hidden="true">
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-live-dot"></span>
+                        Service de protection actif <span class="cp-ticker-num">24/7</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-ticker-num">430 000+</span> sites filtrés en permanence
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        Mise à jour des listes <span class="cp-ticker-num">toutes les 24 h</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        <span class="cp-ticker-num">VPN, Tor &amp; DoH</span> bloqués par défaut
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                    <span class="inline-flex items-center gap-2 text-[#aab7c9]">
+                        Console parents accessible depuis <span class="cp-ticker-num">tout mobile</span>
+                    </span>
+                    <span class="text-[#48b7ff]/30">·</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trust Bar / Réassurance -->
-    <section class="relative z-10 py-10 md:py-14 bg-[#0b203a]/40 border-y border-[#48b7ff]/10">
+    <section class="relative z-10 py-12 md:py-16 bg-[#0b203a]/30">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <div class="flex items-start gap-4">
                 <span class="cp-icon-tile shrink-0">
@@ -540,9 +597,8 @@
     <!-- Main Features Section -->
     <section id="features" class="py-20 md:py-28 max-w-7xl mx-auto px-6 relative z-10">
         <div class="cp-section-heading">
-            <span class="cp-badge">
-                <span class="cp-status-dot"></span>
-                Fonctionnalités essentielles
+            <span class="cp-eyebrow">
+                <span class="cp-eyebrow-num">/ 01</span> — Fonctionnalités essentielles
             </span>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Une protection complète, <span class="cp-text-gradient">sans complexité.</span>
@@ -552,16 +608,64 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Card 1: Filtrage intelligent -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Filtrage intelligent</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Bloquez les contenus inappropriés, les sites dangereux et les catégories non autorisées. Plus de 430 000 domaines sont déjà reconnus, et la liste s'actualise toutes les 24 heures.
-                </p>
+        <div class="cp-bento grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Card 1 (bento featured) — Filtrage intelligent -->
+            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col lg:flex-row gap-6 lg:items-center">
+                <div class="flex flex-col gap-5 lg:flex-1">
+                    <span class="cp-icon-tile">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+                    </span>
+                    <h3 class="font-heading text-xl font-bold text-white">Filtrage intelligent</h3>
+                    <p class="text-sm text-[#aab7c9] leading-relaxed">
+                        Bloquez les contenus inappropriés, les sites dangereux et les catégories non autorisées. Plus de 430 000 domaines sont déjà reconnus, et la liste s'actualise toutes les 24 heures.
+                    </p>
+                </div>
+                <!-- Visualisation : breakdown des catégories -->
+                <div class="lg:flex-1 lg:max-w-xs cp-card-soft p-5 flex flex-col gap-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[#aab7c9]">Catégories filtrées</span>
+                        <span class="cp-ticker-num text-[#48b7ff]">430 000+</span>
+                    </div>
+                    <div class="flex flex-col gap-2.5">
+                        <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="text-[#d7e0ec]">Contenus adultes</span>
+                                <span class="cp-ticker-num text-[#aab7c9]">312k</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
+                                <span class="block h-full rounded-full" style="width: 82%; background: var(--cp-gradient-brand);"></span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="text-[#d7e0ec]">Jeux d'argent</span>
+                                <span class="cp-ticker-num text-[#aab7c9]">58k</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
+                                <span class="block h-full rounded-full" style="width: 38%; background: var(--cp-gradient-brand);"></span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="text-[#d7e0ec]">Violence &amp; haine</span>
+                                <span class="cp-ticker-num text-[#aab7c9]">42k</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
+                                <span class="block h-full rounded-full" style="width: 28%; background: var(--cp-gradient-brand);"></span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="text-[#d7e0ec]">Outils de contournement</span>
+                                <span class="cp-ticker-num text-[#aab7c9]">18k</span>
+                            </div>
+                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
+                                <span class="block h-full rounded-full" style="width: 12%; background: var(--cp-gradient-brand);"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-[#aab7c9]/70 mt-1">Listes communautaires fusionnées · actualisées toutes les 24 h</p>
+                </div>
             </div>
 
             <!-- Card 2: Gestion du temps d'écran -->
@@ -658,9 +762,8 @@
     <section class="relative z-10 py-20 md:py-28 bg-[#0b203a]/30 border-y border-[#48b7ff]/10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
-                <span class="cp-badge self-start">
-                    <span class="cp-status-dot"></span>
-                    Notre philosophie
+                <span class="cp-eyebrow">
+                    <span class="cp-eyebrow-num">/ 02</span> — Notre philosophie
                 </span>
                 <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                     Protéger ne signifie pas <span class="cp-text-gradient">espionner.</span>
@@ -769,9 +872,8 @@
     <!-- How it works -->
     <section id="comment-ca-marche" class="relative z-10 py-20 md:py-28 max-w-7xl mx-auto px-6">
         <div class="cp-section-heading">
-            <span class="cp-badge">
-                <span class="cp-status-dot"></span>
-                Mise en route
+            <span class="cp-eyebrow">
+                <span class="cp-eyebrow-num">/ 03</span> — Mise en route
             </span>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Protégé en <span class="cp-text-gradient">quelques minutes.</span>
@@ -843,9 +945,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left description -->
                 <div class="lg:col-span-6 flex flex-col gap-6">
-                    <span class="cp-badge self-start">
-                        <span class="cp-status-dot"></span>
-                        Console parents en action
+                    <span class="cp-eyebrow">
+                        <span class="cp-eyebrow-num">/ 04</span> — Console parents en action
                     </span>
                     <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                         Tout comprendre <span class="cp-text-gradient">en un seul regard.</span>
@@ -959,9 +1060,8 @@
     <!-- Advanced Protection Section -->
     <section class="relative z-10 py-20 md:py-28 max-w-7xl mx-auto px-6">
         <div class="cp-section-heading">
-            <span class="cp-badge">
-                <span class="cp-status-dot"></span>
-                Protection avancée
+            <span class="cp-eyebrow">
+                <span class="cp-eyebrow-num">/ 05</span> — Protection avancée
             </span>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Une protection conçue pour <span class="cp-text-gradient">résister aux contournements.</span>
@@ -1032,9 +1132,8 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-20 md:py-28 max-w-4xl mx-auto px-6 relative z-10">
         <div class="cp-section-heading">
-            <span class="cp-badge">
-                <span class="cp-status-dot"></span>
-                Vos questions
+            <span class="cp-eyebrow">
+                <span class="cp-eyebrow-num">/ 06</span> — Vos questions
             </span>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 Foire aux <span class="cp-text-gradient">questions</span>
@@ -1311,8 +1410,9 @@
                     <label for="dl-email" class="text-xs font-medium text-[#aab7c9]">Adresse email</label>
                     <input id="dl-email" name="email" type="email" required autocomplete="email" inputmode="email"
                            placeholder="vous@exemple.com"
-                           class="w-full px-4 py-3 rounded-xl bg-[#061426] border border-[#48b7ff]/20 text-white text-sm placeholder-[#aab7c9]/60 focus:outline-none focus:border-[#48b7ff] transition-colors">
-                    <p id="dl-error" class="text-xs text-[#ef4050] hidden">Veuillez saisir une adresse email valide.</p>
+                           aria-describedby="dl-error"
+                           class="cp-input text-sm">
+                    <p id="dl-error" role="alert" aria-live="polite" class="text-xs text-[#ef4050] hidden">Veuillez saisir une adresse email valide.</p>
                 </div>
                 <label class="flex items-start gap-2 text-xs text-[#aab7c9] cursor-pointer">
                     <input id="dl-consent" type="checkbox" required class="mt-0.5 accent-[#48b7ff]">
@@ -1324,7 +1424,7 @@
                     <span id="dl-submit-label">Obtenir le téléchargement</span>
                 </button>
             </form>
-            <div id="dl-success" class="hidden flex-col gap-2 text-center">
+            <div id="dl-success" role="status" aria-live="polite" class="hidden flex-col gap-2 text-center">
                 <div class="mx-auto w-12 h-12 rounded-full bg-[#28d39a]/15 flex items-center justify-center">
                     <svg class="w-6 h-6 text-[#28d39a]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                 </div>
@@ -1334,7 +1434,7 @@
         </div>
     </div>
 
-    <script src="app.js?v=20260616"></script>
+    <script src="app.js?v=20260616-2"></script>
     <script>
     (function () {
         var modal = document.getElementById('dl-modal');
@@ -1362,25 +1462,42 @@
             var a = document.createElement('a'); a.href = url; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
         }
 
+        function showError(message) {
+            errEl.textContent = message;
+            errEl.classList.remove('hidden');
+            emailInput.setAttribute('aria-invalid', 'true');
+        }
+        function clearError() {
+            errEl.classList.add('hidden');
+            emailInput.removeAttribute('aria-invalid');
+        }
+        function setLoading(loading) {
+            submitBtn.disabled = loading;
+            submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+            submitLabel.textContent = loading ? 'Un instant…' : 'Obtenir le téléchargement';
+        }
+
+        emailInput.addEventListener('input', clearError);
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            errEl.classList.add('hidden');
+            clearError();
             var email = (emailInput.value || '').trim();
             var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            if (!ok) { errEl.classList.remove('hidden'); emailInput.focus(); return; }
-            submitBtn.disabled = true; submitLabel.textContent = 'Un instant…';
+            if (!ok) { showError('Veuillez saisir une adresse email valide.'); emailInput.focus(); return; }
+            setLoading(true);
             fetch('/api/download', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: email })
             }).then(function (r) { return r.json().then(function (d) { return { status: r.status, body: d }; }); })
               .then(function (res) {
-                  submitBtn.disabled = false; submitLabel.textContent = 'Obtenir le téléchargement';
+                  setLoading(false);
                   if (res.status === 200 && res.body && res.body.url) { startDownload(res.body.url); }
-                  else { errEl.textContent = (res.body && res.body.error) || 'Une erreur est survenue, réessayez.'; errEl.classList.remove('hidden'); }
+                  else { showError((res.body && res.body.error) || 'Une erreur est survenue, réessayez.'); }
               }).catch(function () {
-                  submitBtn.disabled = false; submitLabel.textContent = 'Obtenir le téléchargement';
-                  errEl.textContent = 'Connexion impossible, réessayez.'; errEl.classList.remove('hidden');
+                  setLoading(false);
+                  showError('Connexion impossible, réessayez.');
               });
         });
 
