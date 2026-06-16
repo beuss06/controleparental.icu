@@ -814,56 +814,22 @@
             <!-- Family photo + overlay -->
             <div class="lg:col-span-5 order-1 lg:order-2">
                 <div class="cp-card relative overflow-hidden aspect-[4/5] flex items-end">
-                    <!-- Real family photo (drop file at /family-photo.jpg).
-                         If missing, the SVG illustration below shows through. -->
-                    <img src="/family-photo.jpg?v=20260616-3"
+                    <!-- Fallback gradient background (visible si /family-photo.jpg manque) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#0b203a] via-[#102641] to-[#061426] pointer-events-none" aria-hidden="true"></div>
+
+                    <!-- Real family photo — couche au-dessus du fallback -->
+                    <img src="/family-photo.jpg?v=20260616-4"
                          alt="Une famille découvre ensemble l'usage d'un ordinateur dans une ambiance chaleureuse"
-                         class="absolute inset-0 w-full h-full object-cover object-top"
+                         class="absolute inset-0 w-full h-full object-cover object-top z-[1]"
                          loading="eager"
                          decoding="async"
                          onerror="this.style.display='none';">
 
-                    <!-- Fallback illustration (visible only if image is missing) -->
-                    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="famBg" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#0b203a"/>
-                                <stop offset="55%" stop-color="#102641"/>
-                                <stop offset="100%" stop-color="#061426"/>
-                            </linearGradient>
-                            <linearGradient id="famGlow" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%" stop-color="#258bff" stop-opacity="0.55"/>
-                                <stop offset="100%" stop-color="#22d3c5" stop-opacity="0.45"/>
-                            </linearGradient>
-                            <radialGradient id="famLamp" cx="0.3" cy="0.2" r="0.8">
-                                <stop offset="0%" stop-color="#f7faff" stop-opacity="0.18"/>
-                                <stop offset="100%" stop-color="#f7faff" stop-opacity="0"/>
-                            </radialGradient>
-                        </defs>
-                        <rect width="400" height="500" fill="url(#famBg)"/>
-                        <ellipse cx="120" cy="120" rx="180" ry="160" fill="url(#famLamp)"/>
-                        <!-- Window with warm light -->
-                        <rect x="40" y="60" width="120" height="160" rx="8" fill="#152e4d" stroke="#48b7ff" stroke-opacity="0.25"/>
-                        <rect x="48" y="68" width="104" height="144" rx="4" fill="url(#famGlow)" opacity="0.35"/>
-                        <line x1="100" y1="60" x2="100" y2="220" stroke="#48b7ff" stroke-opacity="0.2"/>
-                        <line x1="40" y1="140" x2="160" y2="140" stroke="#48b7ff" stroke-opacity="0.2"/>
-                        <!-- Parent silhouette -->
-                        <circle cx="230" cy="280" r="34" fill="#1a3a5e"/>
-                        <path d="M180 380 Q230 320 280 380 L290 460 L170 460 Z" fill="#1a3a5e"/>
-                        <!-- Child silhouette next to parent -->
-                        <circle cx="290" cy="320" r="26" fill="#22324e"/>
-                        <path d="M254 400 Q290 360 326 400 L334 460 L246 460 Z" fill="#22324e"/>
-                        <!-- Laptop -->
-                        <rect x="200" y="395" width="130" height="62" rx="6" fill="#152e4d" stroke="#48b7ff" stroke-opacity="0.3"/>
-                        <rect x="208" y="403" width="114" height="40" rx="3" fill="url(#famGlow)"/>
-                        <rect x="190" y="455" width="150" height="6" rx="3" fill="#102641"/>
-                    </svg>
-
                     <!-- Bottom gradient veil for caption legibility -->
-                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#040d1a] via-[#040d1a]/85 to-transparent pointer-events-none"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#040d1a] via-[#040d1a]/85 to-transparent pointer-events-none z-[2]"></div>
 
                     <!-- Floating caption card -->
-                    <div class="relative w-full p-5 sm:p-6 flex flex-col gap-3">
+                    <div class="relative z-[3] w-full p-5 sm:p-6 flex flex-col gap-3">
                         <span class="cp-pill self-start">
                             <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
                             Vie de famille
