@@ -96,7 +96,7 @@
           "softwareVersion": "1.2.0",
           "url": "https://controleparental.icu/",
           "downloadUrl": "https://controleparental.icu/",
-          "description": "Application de contrôle parental pour Windows 10 et 11 : gestion du temps d'écran, filtrage de plus de 430 000 sites, prévention des contournements (VPN, Tor, DNS sécurisé), console parents accessible depuis mobile.",
+          "description": "Application de contrôle parental pour Windows 10 et 11 : gestion du temps d'écran, horaires d'accès par profil, filtrage de catégories de sites, blocage des principaux clients VPN et Tor, console parent accessible depuis un navigateur (ordinateur, iPhone, Android).",
           "inLanguage": "fr-FR",
           "publisher": { "@id": "https://controleparental.icu/#organization" },
           "offers": {
@@ -106,15 +106,16 @@
             "availability": "https://schema.org/InStock"
           },
           "featureList": [
-            "Gestion du temps d'écran et plages horaires personnalisables",
-            "Filtrage de plus de 430 000 sites pour adultes (listes communautaires)",
-            "Protection contre les contournements (VPN, Tor, DNS sécurisé / DoH)",
-            "Console Parents accessible depuis mobile, liaison chiffrée",
-            "Supervision en temps réel de l'appareil et des sessions",
-            "Verrouillage à distance de l'écran et des entrées",
-            "Planificateur horaire jour par jour",
-            "Installation rapide pré-configurée",
-            "Auto-défense : service Windows et Watchdog"
+            "Gestion du temps d'écran et horaires d'accès personnalisables par profil enfant",
+            "Filtrage par catégories (sources communautaires Block List Project, OISD, Hagezi)",
+            "Blocage des principaux clients VPN et navigateurs Tor connus",
+            "Console parent accessible depuis un navigateur (ordinateur, iPhone, Android)",
+            "Liaison chiffrée bout-en-bout (ECDH P-256 + AES-256)",
+            "Supervision en temps réel de l'appareil et des sessions actives",
+            "Verrouillage à distance de l'écran et des entrées clavier/souris",
+            "Profils enfants séparés avec règles dédiées",
+            "Installation pré-configurée via assistant Windows",
+            "Service Windows + Watchdog pour continuité de protection"
           ]
         },
         {
@@ -139,10 +140,10 @@
             },
             {
               "@type": "Question",
-              "name": "Comment fonctionne la console parents ?",
+              "name": "Comment fonctionne la console parent ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "La console parents est une interface web légère hébergée directement par l'application. Vous y accédez depuis un téléphone, une tablette ou un ordinateur connecté au même réseau, ou à distance via un réseau privé virtuel comme Tailscale. Aucun serveur tiers n'intervient — vos données restent chez vous."
+                "text": "La console parent est accessible depuis un navigateur (ordinateur, iPhone, Android) sur app.controleparental.icu. Vous vous y connectez avec votre compte et retrouvez vos appareils enfants, vos profils et vos règles. En mode local, vous pouvez aussi vous connecter directement à l'agent sur votre réseau Wi-Fi sans passer par Internet."
               }
             },
             {
@@ -150,7 +151,7 @@
               "name": "Mon enfant peut-il contourner le filtrage avec un VPN ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "ControleParental.icu détecte les principaux outils utilisés pour contourner les règles familiales — VPN courants, Tor, proxies — et les ferme automatiquement. La protection inclut également une parade au DNS sécurisé (DoH), qui peut être utilisé pour échapper au filtrage."
+                "text": "ControleParental.icu bloque les principaux clients VPN et navigateurs Tor connus en empêchant leur exécution. Aucun outil de contrôle parental ne couvre toutefois 100 % des contournements possibles : l'application est un cadre qui accompagne le dialogue parent-enfant, pas un dispositif de surveillance infaillible."
               }
             },
             {
@@ -217,19 +218,18 @@
             <!-- Nav links (Desktop) -->
             <div class="hidden md:flex items-center gap-6 lg:gap-7">
                 <a href="#features" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">Fonctionnalités</a>
-                <a href="#pourquoi-gratuit" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">Pourquoi gratuit</a>
                 <a href="#comment-ca-marche" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">Comment ça marche</a>
-                <a href="#console-preview" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">Console</a>
+                <a href="#pourquoi-gratuit" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">Pourquoi gratuit</a>
                 <a href="#faq" class="text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">FAQ</a>
             </div>
 
             <!-- Header CTA -->
             <div class="flex items-center gap-3">
                 <a href="https://app.controleparental.icu/console/login" class="hidden md:inline-flex items-center text-xs md:text-sm font-medium text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer">
-                    Connexion
+                    Espace parents
                 </a>
                 <a href="#telecharger" data-download class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-xs md:text-sm font-semibold cp-button-primary cursor-pointer">
-                    Télécharger
+                    Installer sur Windows
                 </a>
 
                 <!-- Mobile Menu Button -->
@@ -244,12 +244,11 @@
         <!-- Mobile Menu Panel -->
         <div class="hidden md:hidden absolute top-16 left-4 right-4 bg-[#102641] border border-[#48b7ff]/20 rounded-2xl p-6 shadow-2xl transition-all duration-300 flex-col gap-4 mt-2 z-45" id="mobile-menu">
             <a href="#features" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">Fonctionnalités</a>
-            <a href="#pourquoi-gratuit" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">Pourquoi gratuit</a>
             <a href="#comment-ca-marche" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">Comment ça marche</a>
-            <a href="#console-preview" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">Console parents</a>
+            <a href="#pourquoi-gratuit" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">Pourquoi gratuit</a>
             <a href="#faq" class="text-base font-medium text-[#d7e0ec] hover:text-[#48b7ff] py-2 border-b border-[#48b7ff]/10 cursor-pointer">FAQ</a>
             <a href="https://app.controleparental.icu/console/login" class="w-full text-center py-3 text-sm font-semibold cp-button-secondary cursor-pointer mt-2">
-                Connexion à la console parents
+                Espace parents
             </a>
             <a href="#telecharger" data-download class="w-full text-center py-3 text-sm font-semibold cp-button-primary cursor-pointer mt-2">
                 Télécharger gratuitement
@@ -283,8 +282,7 @@
 
                 <!-- Subheadline -->
                 <p class="hero-subtitle max-w-xl mx-auto lg:mx-0">
-                    Protégez vos enfants dans leur vie numérique sans rompre le dialogue.
-                    <strong class="text-white">ControleParental.icu</strong> vous aide à prévenir les dangers, gérer le temps d'écran et accompagner chaque usage — depuis une console claire, accessible où que vous soyez.
+                    <strong class="text-white">ControleParental.icu</strong> vous aide à protéger les usages numériques de vos enfants, gérer le temps d'écran et appliquer des règles simples — depuis une console claire accessible où que vous soyez.
                 </p>
 
                 <!-- CTA Buttons -->
@@ -293,12 +291,18 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
                         </svg>
-                        Télécharger gratuitement
+                        Installer gratuitement sur Windows
                     </a>
-                    <a href="#console-preview" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold cp-button-secondary cursor-pointer">
-                        Découvrir la console parents
+                    <a href="https://app.controleparental.icu/console/login" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold cp-button-secondary cursor-pointer">
+                        Découvrir l'espace parents
                     </a>
                 </div>
+
+                <!-- Platform clarification -->
+                <p class="text-xs text-[#aab7c9] mt-3 max-w-xl mx-auto lg:mx-0">
+                    <strong class="text-white">Agent de protection</strong> sur Windows 10 et Windows 11.<br/>
+                    <strong class="text-white">Console parent</strong> accessible depuis un navigateur sur ordinateur, iPhone et Android.
+                </p>
 
                 <!-- Micro trust row -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-[#aab7c9] mt-2">
@@ -476,7 +480,7 @@
                                     </span>
                                     <div class="flex flex-col flex-1 min-w-0">
                                         <span class="text-xs font-semibold text-white">Contournement empêché</span>
-                                        <span class="text-[10px] text-[#aab7c9] truncate">VPN détecté et neutralisé</span>
+                                        <span class="text-[10px] text-[#aab7c9] truncate">Tentative VPN bloquée</span>
                                     </div>
                                     <span class="px-2 py-0.5 rounded bg-[#f59e0b]/15 text-[#f59e0b] border border-[#f59e0b]/30 text-[9px] font-bold uppercase tracking-wide shrink-0">Bloqué</span>
                                 </div>
@@ -508,7 +512,7 @@
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
-                        <span class="cp-ticker-num">VPN, Tor &amp; DoH</span> bloqués par défaut
+                        <span class="cp-ticker-num">VPN &amp; Tor</span> courants bloqués par défaut
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
@@ -532,7 +536,7 @@
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
-                        <span class="cp-ticker-num">VPN, Tor &amp; DoH</span> bloqués par défaut
+                        <span class="cp-ticker-num">VPN &amp; Tor</span> courants bloqués par défaut
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
@@ -733,7 +737,7 @@
                 </span>
                 <h3 class="font-heading text-lg font-bold text-white">Protection contre les contournements</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Empêchez les contournements. ControleParental.icu détecte les outils susceptibles d'être utilisés pour échapper aux règles familiales (VPN, Tor, DNS sécurisé).
+                    Limitez les contournements. ControleParental.icu bloque l'exécution des principaux clients VPN et navigateurs Tor connus, sur la base d'une liste maintenue côté agent.
                 </p>
             </div>
 
@@ -850,6 +854,59 @@
         </div>
     </section>
 
+    <!-- Controler sans surveiller — section différenciante -->
+    <section id="philosophie" class="relative z-10 py-20 md:py-28 max-w-6xl mx-auto px-6">
+        <div class="cp-section-heading">
+            <span class="cp-eyebrow">
+                <span class="cp-eyebrow-num">/ 02</span> — Notre philosophie
+            </span>
+            <h2 class="font-heading section-title text-white">
+                Contrôler <span class="cp-text-gradient">sans surveiller.</span>
+            </h2>
+            <p class="text-sm md:text-base text-[#d7e0ec] max-w-3xl">
+                Le rôle d'un contrôle parental n'est pas d'espionner votre enfant. Il sert à poser un cadre clair, à prévenir les risques et à accompagner progressivement son autonomie numérique.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12">
+            <div class="cp-card p-6 flex flex-col gap-3">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-[#48b7ff]/15 text-[#48b7ff]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0-.414.336-.75.75-.75h3a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75v-4.5z"/>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-semibold text-white">Pas de lecture des messages</h3>
+                <p class="text-sm text-[#aab7c9] leading-relaxed">
+                    Aucun message envoyé ou reçu par votre enfant n'est lu ni stocké. L'agent ne collecte ni le contenu des conversations, ni l'historique privé.
+                </p>
+            </div>
+
+            <div class="cp-card p-6 flex flex-col gap-3">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-[#22d3c5]/15 text-[#22d3c5]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5L21 6m-5.25 4.5v5.25M21 6v5.25M3 10.5l5.25-4.5M3 10.5v5.25m5.25-9.75v5.25m12 .75H4.5A1.5 1.5 0 003 12v6.75A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V12a1.5 1.5 0 00-1.5-1.5z"/>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-semibold text-white">Pas d'accès caméra ni microphone</h3>
+                <p class="text-sm text-[#aab7c9] leading-relaxed">
+                    L'agent ne pilote pas la webcam ni le micro. Il agit uniquement sur les règles d'accès, les horaires et le filtrage de sites au niveau du système.
+                </p>
+            </div>
+
+            <div class="cp-card p-6 flex flex-col gap-3">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center bg-[#28d39a]/15 text-[#28d39a]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-lg font-semibold text-white">Des règles visibles et discutées</h3>
+                <p class="text-sm text-[#aab7c9] leading-relaxed">
+                    Le verrouillage de l'écran affiche le motif au moment où il s'applique. Les règles sont posées en famille : votre enfant sait pourquoi et quand l'accès est restreint.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Founder story + Why free (bento) -->
     <section id="pourquoi-gratuit" class="relative z-10 py-20 md:py-28 max-w-7xl mx-auto px-6">
         <div class="cp-section-heading">
@@ -960,7 +1017,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"></path></svg>
                 </span>
                 <h3 class="font-heading text-base font-bold text-white">Sans tracking</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">Aucune télémétrie cachée. Vos données restent chez vous.</p>
+                <p class="text-sm text-[#aab7c9] leading-relaxed">Aucune télémétrie cachée. Aucune publicité, aucune revente de données. Vous gardez la maîtrise de vos règles et de vos profils.</p>
             </article>
 
             <article class="lg:col-span-4 cp-card p-6 flex flex-col gap-3">
@@ -1224,8 +1281,8 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>
                     </span>
                     <div class="flex-1 min-w-0">
-                        <p class="text-sm text-white font-semibold">Neutralisation du DoH</p>
-                        <p class="text-[11px] text-[#aab7c9]">Le DNS sécurisé des navigateurs est redirigé localement</p>
+                        <p class="text-sm text-white font-semibold">Filtrage local</p>
+                        <p class="text-[11px] text-[#aab7c9]">Les règles sont appliquées au niveau du système, sans proxy distant</p>
                     </div>
                     <span class="cp-pill shrink-0 hidden sm:inline-flex"><span class="cp-live-dot" style="width:0.35rem; height:0.35rem;"></span> Actif</span>
                 </div>
@@ -1269,7 +1326,7 @@
                 </span>
                 <h3 class="font-heading text-base font-bold text-white">Protection du DNS</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Le DNS sécurisé (DoH) intégré aux navigateurs est neutralisé, ce qui maintient le filtrage des contenus.
+                    Le filtrage s'applique localement au niveau du système, hors de portée d'une session utilisateur standard.
                 </p>
             </div>
             <div class="cp-card p-7 flex flex-col gap-4">
@@ -1357,7 +1414,7 @@
                 </button>
                 <div class="faq-content max-h-0 overflow-hidden">
                     <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        La console parents est une interface web légère hébergée directement par l'application. Vous y accédez depuis un téléphone, une tablette ou un ordinateur connecté au même réseau, ou à distance via un réseau privé virtuel comme <strong>Tailscale</strong>. Aucun serveur tiers n'intervient — vos données restent chez vous.
+                        La console parent est accessible depuis un navigateur (ordinateur, iPhone, Android) sur <strong>app.controleparental.icu</strong>. Vous vous y connectez avec votre compte et retrouvez vos appareils enfants, vos profils et vos règles. En mode local, vous pouvez aussi vous connecter directement à l'agent sur votre réseau Wi-Fi sans passer par Internet.
                     </p>
                 </div>
             </div>
@@ -1372,7 +1429,7 @@
                 </button>
                 <div class="faq-content max-h-0 overflow-hidden">
                     <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        ControleParental.icu détecte les principaux outils utilisés pour contourner les règles familiales — VPN courants, Tor, proxies — et les ferme automatiquement. La protection inclut également une parade au DNS sécurisé (DoH), qui peut être utilisé pour échapper au filtrage.
+                        ControleParental.icu bloque l'exécution des principaux clients VPN et navigateurs Tor connus, sur la base d'une liste maintenue côté agent. Aucun outil de contrôle parental ne couvre toutefois 100 % des contournements possibles : l'application est un cadre qui accompagne le dialogue parent-enfant, pas un dispositif de surveillance infaillible.
                     </p>
                 </div>
             </div>
@@ -1442,10 +1499,10 @@
                 </span>
             </div>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight max-w-2xl leading-tight relative">
-                Protégez aujourd'hui <span class="cp-text-gradient">leur avenir numérique.</span>
+                Des règles simples pour <span class="cp-text-gradient">des usages plus sereins.</span>
             </h2>
             <p class="text-sm md:text-base text-[#d7e0ec] max-w-xl relative">
-                Téléchargez <strong class="text-white">gratuitement</strong> ControleParental.icu et mettez en place un cadre numérique plus sûr pour toute la famille. Pas d'abonnement, pas de freemium. Aucune compétence technique requise.
+                Installez <strong class="text-white">ControleParental.icu</strong> et créez un premier cadre numérique adapté à votre famille. Pas d'abonnement, pas de publicité, pas de revente de données.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 mt-2 relative">
@@ -1453,10 +1510,10 @@
                     <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
                     </svg>
-                    Télécharger gratuitement
+                    Installer gratuitement sur Windows
                 </a>
-                <a href="#console-preview" class="inline-flex items-center justify-center gap-2 px-8 py-5 text-base font-semibold cp-button-secondary cursor-pointer">
-                    Accéder à la console parents
+                <a href="https://app.controleparental.icu/console/login" class="inline-flex items-center justify-center gap-2 px-8 py-5 text-base font-semibold cp-button-secondary cursor-pointer">
+                    Accéder à l'espace parents
                 </a>
             </div>
 
@@ -1498,7 +1555,7 @@
                         </span>
                     </a>
                     <p class="text-sm text-[#aab7c9] max-w-sm leading-relaxed">
-                        Une solution de protection parentale pour Windows 10 et 11 : gestion du temps d'écran, filtrage des contenus, console parents accessible depuis votre mobile. Vos données restent chez vous.
+                        Une solution de protection parentale pour Windows 10 et 11 : gestion du temps d'écran, horaires d'accès, filtrage de contenus, console parent accessible depuis un navigateur (ordinateur, iPhone, Android).
                     </p>
                     <p class="text-xs text-[#aab7c9]/80">
                         Conçu et développé en France <span aria-hidden="true">🇫🇷</span> par
@@ -1511,7 +1568,7 @@
                     <span class="text-xs font-bold text-white uppercase tracking-wider">Produit</span>
                     <a href="#features" class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">Fonctionnalités</a>
                     <a href="#comment-ca-marche" class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">Comment ça marche</a>
-                    <a href="#console-preview" class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">Console parents</a>
+                    <a href="https://app.controleparental.icu/console/login" class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">Espace parents</a>
                     <a href="#faq" class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">FAQ</a>
                     <a href="#telecharger" data-download class="text-sm text-[#aab7c9] hover:text-[#48b7ff] transition-colors cursor-pointer w-fit">Télécharger</a>
                 </nav>
@@ -1534,31 +1591,15 @@
                 </div>
             </div>
 
-            <!-- Partner / Trust logos -->
+            <!-- Partner / Trust logo -->
             <div class="mt-12 pt-8 border-t border-[#48b7ff]/10">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-x-14 gap-y-6">
-                    <!-- Tailscale -->
-                    <a href="https://tailscale.com" target="_blank" rel="noopener noreferrer" aria-label="Compatible avec Tailscale" class="flex items-center gap-2.5 opacity-60 hover:opacity-100 transition-opacity">
-                        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <circle cx="4" cy="4" r="2.4" opacity="0.35"/>
-                            <circle cx="12" cy="4" r="2.4"/>
-                            <circle cx="20" cy="4" r="2.4" opacity="0.35"/>
-                            <circle cx="4" cy="12" r="2.4"/>
-                            <circle cx="12" cy="12" r="2.4"/>
-                            <circle cx="20" cy="12" r="2.4"/>
-                            <circle cx="4" cy="20" r="2.4" opacity="0.35"/>
-                            <circle cx="12" cy="20" r="2.4"/>
-                            <circle cx="20" cy="20" r="2.4" opacity="0.35"/>
-                        </svg>
-                        <span class="font-heading text-lg font-semibold text-white tracking-tight">Tailscale</span>
-                    </a>
-                    <!-- slgd.fr -->
+                <div class="flex items-center justify-center">
                     <a href="https://slgd.fr" target="_blank" rel="noopener noreferrer" aria-label="Propulsé par slgd.fr" class="opacity-60 hover:opacity-100 transition-opacity">
                         <img src="/logo-slgd.webp" alt="slgd.fr" class="h-7 w-auto" loading="lazy">
                     </a>
                 </div>
                 <p class="text-center text-[10px] uppercase tracking-[0.18em] text-[#aab7c9]/50 mt-5">
-                    Compatible avec Tailscale &nbsp;·&nbsp; Propulsé par slgd.fr
+                    Conçu en France &nbsp;·&nbsp; Propulsé par slgd.fr
                 </p>
             </div>
 
