@@ -1,7 +1,41 @@
 // app.js — ControleParental.icu
 // Comportement : nav mobile, scroll navbar, FAQ, compteurs, mockup hero, démonstrateur console.
 
+// ============================================================================
+// PRODUCT_CAPABILITIES — source unique de vérité pour les promesses marketing.
+// Toute valeur affichée dans la landing (chiffres, plateformes, sources de
+// listes) doit venir d'ici plutôt que d'un littéral en dur dans le HTML.
+// Les éléments avec l'attribut data-cp-capability="<clé>" sont hydratés ci-bas.
+// ============================================================================
+window.PRODUCT_CAPABILITIES = Object.freeze({
+    // Nombre approximatif de domaines couverts par la combinaison des listes
+    // communautaires que l'agent peut activer. Variable, à actualiser quand
+    // les listes upstream évoluent significativement.
+    filteredSitesCount: 430000,
+    filteredSitesLabel: '430 000+',
+    // Sources upstream — affichées telles quelles dans la carte de filtrage.
+    blocklistSources: 'Block List Project · OISD · Hagezi',
+    // Plateformes supportées par l'agent (côté enfant).
+    agentPlatforms: 'Windows 10 et 11',
+    // Plateformes supportées par l'espace parent (côté parents).
+    consolePlatforms: 'Ordinateur, iPhone et Android',
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 0. Hydratation des claims marketing
+    // ==========================================
+    // Remplit le contenu des éléments marqués data-cp-capability="<key>" à
+    // partir de PRODUCT_CAPABILITIES. Évite de dupliquer les chiffres et
+    // libellés dans le HTML.
+    document.querySelectorAll('[data-cp-capability]').forEach(el => {
+        const key = el.getAttribute('data-cp-capability');
+        const value = window.PRODUCT_CAPABILITIES[key];
+        if (value !== undefined && value !== null) {
+            el.textContent = String(value);
+        }
+    });
 
     // ==========================================
     // 1. Mobile Menu Toggle

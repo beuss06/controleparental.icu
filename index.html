@@ -316,7 +316,7 @@
                     </span>
                     <span class="inline-flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
-                        Données chez vous
+                        Règles personnalisées par enfant
                     </span>
                     <span class="inline-flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
@@ -504,7 +504,7 @@
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
-                        <span class="cp-ticker-num">430 000+</span> sites filtrés en permanence
+                        <span class="cp-ticker-num" data-cp-capability="filteredSitesLabel">430 000+</span> sites filtrés en permanence
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
@@ -528,7 +528,7 @@
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
-                        <span class="cp-ticker-num">430 000+</span> sites filtrés en permanence
+                        <span class="cp-ticker-num" data-cp-capability="filteredSitesLabel">430 000+</span> sites filtrés en permanence
                     </span>
                     <span class="text-[#48b7ff]/30">·</span>
                     <span class="inline-flex items-center gap-2 text-[#aab7c9]">
@@ -612,6 +612,48 @@
         </div>
     </section>
 
+    <!-- Trust strip — preuves rapides + clarification plateformes -->
+    <section aria-label="Preuves rapides" class="relative z-10 max-w-7xl mx-auto px-6 -mt-8 md:-mt-10">
+        <div class="cp-card px-6 py-5 md:px-8 md:py-6 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+            <!-- Bénéfices -->
+            <ul class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#d7e0ec] flex-1">
+                <li class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#28d39a] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Sans abonnement
+                </li>
+                <li class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#48b7ff] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Conçu en France
+                </li>
+                <li class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#22d3c5] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Règles personnalisées par enfant
+                </li>
+                <li class="inline-flex items-center gap-2">
+                    <svg class="w-4 h-4 text-[#28d39a] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Pas de publicité, pas de revente de données
+                </li>
+            </ul>
+            <!-- Plateformes (séparateur visible) -->
+            <div class="flex flex-col gap-2 md:border-l md:border-[#48b7ff]/15 md:pl-8 shrink-0">
+                <div class="flex items-start gap-3">
+                    <svg class="w-4 h-4 mt-0.5 text-[#48b7ff] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
+                    <div class="text-xs leading-tight">
+                        <p class="text-white font-semibold">Agent de protection</p>
+                        <p class="text-[#aab7c9]">Windows 10 et Windows 11</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <svg class="w-4 h-4 mt-0.5 text-[#22d3c5] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/></svg>
+                    <div class="text-xs leading-tight">
+                        <p class="text-white font-semibold">Console parent</p>
+                        <p class="text-[#aab7c9]">Navigateur · iPhone · Android</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Features Section -->
     <section id="features" class="py-20 md:py-28 max-w-7xl mx-auto px-6 relative z-10">
         <div class="cp-section-heading">
@@ -622,67 +664,64 @@
                 Une protection complète, <span class="cp-text-gradient">sans complexité.</span>
             </h2>
             <p class="text-sm md:text-base text-[#d7e0ec]">
-                Retrouvez les outils essentiels pour sécuriser le parcours numérique de vos enfants et appliquer les règles définies en famille.
+                Les outils essentiels pour sécuriser le parcours numérique de vos enfants et appliquer les règles définies en famille.
             </p>
         </div>
 
-        <div class="cp-bento grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Card 1 (bento featured) — Filtrage intelligent -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col lg:flex-row gap-6 lg:items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-7 mt-12">
+            <!-- Card 1 — Filtrage intelligent (avec mini visualisation) -->
+            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col lg:flex-row gap-6 lg:items-start">
                 <div class="flex flex-col gap-5 lg:flex-1">
                     <span class="cp-icon-tile">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </span>
                     <h3 class="font-heading text-xl font-bold text-white">Filtrage intelligent</h3>
                     <p class="text-sm text-[#aab7c9] leading-relaxed">
-                        Bloquez les contenus inappropriés, les sites dangereux et les catégories non autorisées. Plus de 430 000 domaines sont déjà reconnus, et la liste s'actualise toutes les 24 heures.
+                        Bloquez les contenus inadaptés, les sites dangereux et les catégories non autorisées selon l'âge et les règles de votre famille.
                     </p>
                 </div>
-                <!-- Visualisation : breakdown des catégories -->
+                <!-- Mini visualisation : 4 catégories actives (libellés réels, pas de chiffres inventés) -->
                 <div class="lg:flex-1 lg:max-w-xs cp-card-soft p-5 flex flex-col gap-3">
                     <div class="flex items-center justify-between text-xs">
-                        <span class="text-[#aab7c9]">Catégories filtrées</span>
-                        <span class="cp-ticker-num text-[#48b7ff]">430 000+</span>
+                        <span class="text-[#aab7c9] uppercase tracking-wider">Catégories actives</span>
+                        <span class="text-[10px] text-[#28d39a] inline-flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
+                            Filtre actif
+                        </span>
                     </div>
-                    <div class="flex flex-col gap-2.5">
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center justify-between text-[11px]">
-                                <span class="text-[#d7e0ec]">Contenus adultes</span>
-                                <span class="cp-ticker-num text-[#aab7c9]">312k</span>
-                            </div>
-                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
-                                <span class="block h-full rounded-full" style="width: 82%; background: var(--cp-gradient-brand);"></span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center justify-between text-[11px]">
-                                <span class="text-[#d7e0ec]">Jeux d'argent</span>
-                                <span class="cp-ticker-num text-[#aab7c9]">58k</span>
-                            </div>
-                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
-                                <span class="block h-full rounded-full" style="width: 38%; background: var(--cp-gradient-brand);"></span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center justify-between text-[11px]">
-                                <span class="text-[#d7e0ec]">Violence &amp; haine</span>
-                                <span class="cp-ticker-num text-[#aab7c9]">42k</span>
-                            </div>
-                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
-                                <span class="block h-full rounded-full" style="width: 28%; background: var(--cp-gradient-brand);"></span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex items-center justify-between text-[11px]">
-                                <span class="text-[#d7e0ec]">Outils de contournement</span>
-                                <span class="cp-ticker-num text-[#aab7c9]">18k</span>
-                            </div>
-                            <div class="h-1 rounded-full bg-[#48b7ff]/10 overflow-hidden">
-                                <span class="block h-full rounded-full" style="width: 12%; background: var(--cp-gradient-brand);"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-[10px] text-[#aab7c9]/70 mt-1">Listes communautaires fusionnées · actualisées toutes les 24 h</p>
+                    <ul class="flex flex-col gap-2 text-[12px]">
+                        <li class="flex items-center justify-between">
+                            <span class="text-[#d7e0ec] inline-flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#48b7ff]"></span>
+                                Contenus adultes
+                            </span>
+                            <span class="text-[#aab7c9]">Bloqué</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-[#d7e0ec] inline-flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#48b7ff]"></span>
+                                Jeux d'argent
+                            </span>
+                            <span class="text-[#aab7c9]">Bloqué</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-[#d7e0ec] inline-flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#48b7ff]"></span>
+                                Violence &amp; haine
+                            </span>
+                            <span class="text-[#aab7c9]">Bloqué</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-[#d7e0ec] inline-flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#aab7c9]/40"></span>
+                                Réseaux sociaux
+                            </span>
+                            <span class="text-[#aab7c9]/60">Optionnel</span>
+                        </li>
+                    </ul>
+                    <p class="text-[10px] text-[#aab7c9]/70 mt-1">
+                        Listes communautaires <span data-cp-capability="blocklistSources">Block List Project · OISD · Hagezi</span>
+                    </p>
                 </div>
             </div>
 
@@ -691,165 +730,32 @@
                 <span class="cp-icon-tile">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </span>
-                <h3 class="font-heading text-lg font-bold text-white">Gestion du temps d'écran</h3>
+                <h3 class="font-heading text-xl font-bold text-white">Gestion du temps d'écran</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Créez des horaires, définissez des limites et organisez des périodes sans écran. Idéal pour préserver les devoirs, les repas et le sommeil.
+                    Créez des horaires, définissez des limites et préservez les temps de sommeil, de devoirs ou de repas.
                 </p>
             </div>
 
-            <!-- Card 3: Supervision en temps réel -->
+            <!-- Card 3: Profils adaptés à chaque enfant -->
             <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
                 <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path></svg>
                 </span>
-                <h3 class="font-heading text-lg font-bold text-white">Supervision en temps réel</h3>
+                <h3 class="font-heading text-xl font-bold text-white">Profils adaptés à chaque enfant</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Suivez l'état de l'appareil, la session active et les événements importants. Pratique pour intervenir au bon moment, sans intrusion.
+                    Chaque enfant peut avoir ses propres règles, ses horaires et son niveau de protection.
                 </p>
             </div>
 
-            <!-- Card 4: Rapports d'activité -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
+            <!-- Card 4: Protection contre les contournements (vraie capacité agent) -->
+            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5 md:col-span-2">
                 <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </span>
-                <h3 class="font-heading text-lg font-bold text-white">Rapports d'activité</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Visualisez les usages et les alertes importantes de manière compréhensible — sans avalanche de données techniques.
+                <h3 class="font-heading text-xl font-bold text-white">Protection contre les contournements</h3>
+                <p class="text-sm text-[#aab7c9] leading-relaxed max-w-3xl">
+                    L'agent bloque l'exécution des principaux clients VPN et navigateurs Tor connus, sur la base d'une liste maintenue côté agent. Aucun outil de contrôle parental ne couvre 100 % des contournements possibles : l'application est un cadre qui accompagne le dialogue parent-enfant.
                 </p>
-            </div>
-
-            <!-- Card 5: Contrôle instantané -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Contrôle instantané</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Verrouillez un appareil ou suspendez son utilisation en un clic. Idéal pour rappeler une règle ou prévoir un repas en famille.
-                </p>
-            </div>
-
-            <!-- Card 6: Protection anti-contournement -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Protection contre les contournements</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Limitez les contournements. ControleParental.icu bloque l'exécution des principaux clients VPN et navigateurs Tor connus, sur la base d'une liste maintenue côté agent.
-                </p>
-            </div>
-
-            <!-- Card 7: Console mobile -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Console parents mobile</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Une interface web légère, accessible depuis n'importe quel téléphone, tablette ou ordinateur. La liaison avec l'appareil de l'enfant est chiffrée de bout en bout.
-                </p>
-            </div>
-
-            <!-- Card 8: Planificateur -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Planificateur horaire</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Définissez des plages d'utilisation autorisées, jour par jour. Les règles s'appliquent automatiquement, sans intervention de votre part.
-                </p>
-            </div>
-
-            <!-- Card 9: Installation simple -->
-            <div class="cp-card feature-card-zoom glow-on-hover p-7 sm:p-8 flex flex-col gap-5">
-                <span class="cp-icon-tile">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </span>
-                <h3 class="font-heading text-lg font-bold text-white">Installation rapide</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    L'installateur configure tout pour vous : service Windows, règles initiales et accès à la console parents. La protection est active en quelques minutes.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emotional / Family Section -->
-    <section class="relative z-10 py-20 md:py-28 bg-[#0b203a]/30 border-y border-[#48b7ff]/10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
-                <span class="cp-eyebrow">
-                    <span class="cp-eyebrow-num">/ 02</span> — Notre philosophie
-                </span>
-                <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-                    Protéger ne signifie pas <span class="cp-text-gradient">espionner.</span>
-                </h2>
-                <p class="text-base md:text-lg text-[#d7e0ec] leading-relaxed">
-                    ControleParental.icu est conçu pour aider les familles à établir des règles claires, prévenir les situations dangereuses et développer progressivement l'autonomie numérique des enfants.
-                </p>
-                <p class="text-base text-[#aab7c9] leading-relaxed">
-                    Le contrôle parental doit rester un outil de dialogue. Les parents gardent une vision claire des usages, tandis que les enfants comprennent les limites mises en place pour leur sécurité.
-                </p>
-
-                <ul class="grid sm:grid-cols-2 gap-4 mt-2">
-                    <li class="flex items-start gap-3">
-                        <span class="cp-check-dot">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        </span>
-                        <span class="text-sm text-[#d7e0ec]">Règles claires, expliquées et adaptées à chaque enfant.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="cp-check-dot">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        </span>
-                        <span class="text-sm text-[#d7e0ec]">Dialogue privilégié : pas de surveillance cachée.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="cp-check-dot">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        </span>
-                        <span class="text-sm text-[#d7e0ec]">Autonomie progressive : la confiance grandit avec l'âge.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="cp-check-dot">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-                        </span>
-                        <span class="text-sm text-[#d7e0ec]">Données familiales préservées chez vous, sans cloud externe.</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Family photo + overlay -->
-            <div class="lg:col-span-5 order-1 lg:order-2">
-                <div class="cp-card relative overflow-hidden aspect-[4/5] flex items-end">
-                    <!-- Fallback gradient background (visible si /family-photo.jpg manque) -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#0b203a] via-[#102641] to-[#061426] pointer-events-none" aria-hidden="true"></div>
-
-                    <!-- Real family photo — couche au-dessus du fallback -->
-                    <img src="/family-photo.jpg?v=20260616-4"
-                         alt="Une famille découvre ensemble l'usage d'un ordinateur dans une ambiance chaleureuse"
-                         class="absolute inset-0 w-full h-full object-cover object-top z-[1]"
-                         loading="eager"
-                         decoding="async"
-                         onerror="this.style.display='none';">
-
-                    <!-- Bottom gradient veil for caption legibility -->
-                    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#040d1a] via-[#040d1a]/85 to-transparent pointer-events-none z-[2]"></div>
-
-                    <!-- Floating caption card -->
-                    <div class="relative z-[3] w-full p-5 sm:p-6 flex flex-col gap-3">
-                        <span class="cp-pill self-start">
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span>
-                            Vie de famille
-                        </span>
-                        <p class="text-base sm:text-lg text-white font-heading font-semibold leading-snug">
-                            « On a posé des règles claires, et on parle d'écran sereinement. »
-                        </p>
-                        <p class="text-xs text-[#aab7c9]">— Émilie, maman de Léa (11 ans) et Hugo (8 ans)</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -922,15 +828,13 @@
             </p>
         </div>
 
-        <!-- Bento founder grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- Hero card : Sébastien quote (spans 7 cols desktop, 2 rows) -->
-            <article class="lg:col-span-7 lg:row-span-2 cp-card p-7 sm:p-10 flex flex-col gap-6 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            <!-- Founder testimonial -->
+            <article class="lg:col-span-6 cp-card p-7 sm:p-10 flex flex-col gap-6 relative overflow-hidden">
                 <div class="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-[#258bff]/15 blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-[#22d3c5]/12 blur-3xl pointer-events-none"></div>
 
                 <div class="relative flex items-center gap-4">
-                    <!-- Avatar SVG stylisé -->
                     <span class="relative inline-flex items-center justify-center w-14 h-14 rounded-full font-heading font-bold text-lg text-white shrink-0" style="background: var(--cp-gradient-brand);">
                         SB
                         <span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#28d39a] border-2 border-[#102641]"></span>
@@ -955,149 +859,129 @@
                 </blockquote>
 
                 <p class="relative text-sm text-[#d7e0ec] leading-relaxed">
-                    ControleParental.icu est conçu pour être <strong class="text-white">complet</strong>, <strong class="text-white">léger sur Windows</strong> et accessible <strong class="text-white">sans aucun coût</strong>.
-                    Pas d'abonnement, pas de version premium, pas de freemium déguisé : la protection est entière, pour tout le monde, pour toujours.
+                    Pas d'abonnement, pas de version premium, pas de freemium déguisé : la protection est entière, pour tout le monde.
                 </p>
 
-                <div class="relative flex flex-wrap gap-2 mt-1">
-                    <span class="cp-pill"><span class="w-1.5 h-1.5 rounded-full bg-[#48b7ff]"></span> Projet personnel</span>
-                    <span class="cp-pill"><span class="w-1.5 h-1.5 rounded-full bg-[#22d3c5]"></span> Conçu en France</span>
-                    <span class="cp-pill"><span class="w-1.5 h-1.5 rounded-full bg-[#28d39a]"></span> Sans monétisation cachée</span>
+                <div class="relative inline-flex items-baseline gap-2 mt-1">
+                    <span class="cp-text-gradient font-heading font-extrabold leading-none" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">0 €</span>
+                    <span class="text-sm text-[#aab7c9] font-medium">— pour toujours</span>
                 </div>
             </article>
 
-            <!-- Stat card : prix -->
-            <article class="lg:col-span-5 cp-card p-7 flex flex-col gap-3 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-[#22d3c5]/15 blur-2xl pointer-events-none"></div>
-                <span class="cp-eyebrow text-[10px]">
-                    <span class="cp-eyebrow-num">·</span> Tarif
+            <!-- Transparency list : 5 commitments -->
+            <div class="lg:col-span-6 cp-card p-7 sm:p-8 flex flex-col gap-5">
+                <span class="cp-eyebrow text-[11px]">
+                    <span class="cp-eyebrow-num">·</span> Nos engagements
                 </span>
-                <div class="relative flex items-baseline gap-2">
-                    <span class="cp-text-gradient font-heading font-extrabold leading-none" style="font-size: clamp(3rem, 5vw, 4.5rem);">0 €</span>
-                    <span class="text-base text-[#aab7c9] font-medium">/ à vie</span>
-                </div>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Pas d'essai, pas d'abonnement, pas d'option payante. Téléchargement libre, mises à jour incluses.
-                </p>
-            </article>
-
-            <!-- Stat card : empreinte système -->
-            <article class="lg:col-span-5 cp-card p-7 flex flex-col gap-3 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-[#258bff]/12 blur-2xl pointer-events-none"></div>
-                <span class="cp-eyebrow text-[10px]">
-                    <span class="cp-eyebrow-num">·</span> Empreinte système
-                </span>
-                <div class="relative flex items-end gap-4">
-                    <div class="flex flex-col">
-                        <span class="cp-ticker-num text-[#48b7ff] font-heading font-bold" style="font-size: clamp(1.75rem, 3vw, 2.4rem); line-height: 1;">&lt; 3 %</span>
-                        <span class="text-[11px] text-[#aab7c9] uppercase tracking-wider mt-1">CPU</span>
-                    </div>
-                    <span class="text-[#48b7ff]/30">|</span>
-                    <div class="flex flex-col">
-                        <span class="cp-ticker-num text-[#22d3c5] font-heading font-bold" style="font-size: clamp(1.75rem, 3vw, 2.4rem); line-height: 1;">~ 50 Mo</span>
-                        <span class="text-[11px] text-[#aab7c9] uppercase tracking-wider mt-1">RAM</span>
-                    </div>
-                </div>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Capture d'écran via DXGI, audio en Opus, hooks au niveau OS : presque invisible pour la machine.
-                </p>
-            </article>
-
-            <!-- Triple promise row : 3 small cards -->
-            <article class="lg:col-span-4 cp-card p-6 flex flex-col gap-3">
-                <span class="cp-icon-tile" style="width: 2.5rem; height: 2.5rem;">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
-                </span>
-                <h3 class="font-heading text-base font-bold text-white">Sans publicité</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">Aucune publicité, aucun popup, aucun upsell.</p>
-            </article>
-
-            <article class="lg:col-span-4 cp-card p-6 flex flex-col gap-3">
-                <span class="cp-icon-tile" style="width: 2.5rem; height: 2.5rem;">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"></path></svg>
-                </span>
-                <h3 class="font-heading text-base font-bold text-white">Sans tracking</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">Aucune télémétrie cachée. Aucune publicité, aucune revente de données. Vous gardez la maîtrise de vos règles et de vos profils.</p>
-            </article>
-
-            <article class="lg:col-span-4 cp-card p-6 flex flex-col gap-3">
-                <span class="cp-icon-tile" style="width: 2.5rem; height: 2.5rem;">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                </span>
-                <h3 class="font-heading text-base font-bold text-white">Conçu en France</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">Développé et hébergé en France, sous droit français.</p>
-            </article>
+                <h3 class="font-heading text-xl sm:text-2xl font-bold text-white">
+                    Pas de coût. Pas de piège.
+                </h3>
+                <ul class="flex flex-col gap-4 mt-2">
+                    <li class="flex items-start gap-3">
+                        <span class="cp-check-dot mt-0.5">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Pas de publicité</p>
+                            <p class="text-xs text-[#aab7c9] leading-relaxed mt-0.5">Aucune bannière, aucun popup, aucun upsell dans l'application ou l'espace parent.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="cp-check-dot mt-0.5">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Pas de revente de données</p>
+                            <p class="text-xs text-[#aab7c9] leading-relaxed mt-0.5">Vos données et celles de vos enfants ne sont jamais vendues à des tiers, ni utilisées pour profiler.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="cp-check-dot mt-0.5">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Pas de piège</p>
+                            <p class="text-xs text-[#aab7c9] leading-relaxed mt-0.5">Aucun essai à durée limitée, aucune fonctionnalité essentielle bridée derrière un paywall.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="cp-check-dot mt-0.5">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Données contrôlées par la famille</p>
+                            <p class="text-xs text-[#aab7c9] leading-relaxed mt-0.5">Les règles et profils sont gérés depuis votre espace parent. Vous pouvez les modifier ou les supprimer à tout moment.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="cp-check-dot mt-0.5">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </span>
+                        <div>
+                            <p class="text-sm font-semibold text-white">Conçu en France 🇫🇷</p>
+                            <p class="text-xs text-[#aab7c9] leading-relaxed mt-0.5">Développé et hébergé en France, sous droit français et RGPD.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- How it works -->
-    <section id="comment-ca-marche" class="relative z-10 py-20 md:py-28 max-w-7xl mx-auto px-6">
+    <section id="comment-ca-marche" class="relative z-10 py-20 md:py-28 max-w-6xl mx-auto px-6">
         <div class="cp-section-heading">
             <span class="cp-eyebrow">
                 <span class="cp-eyebrow-num">/ 04</span> — Mise en route
             </span>
             <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-                Protégé en <span class="cp-text-gradient">quelques minutes.</span>
+                Comment ça marche, <span class="cp-text-gradient">simplement.</span>
             </h2>
             <p class="text-sm md:text-base text-[#d7e0ec]">
-                Quatre étapes simples pour mettre en place un cadre numérique adapté à votre famille.
+                Trois étapes pour mettre en place un cadre numérique adapté à votre famille.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            <!-- Step 1 -->
-            <div class="cp-card p-6 flex flex-col gap-4 relative">
+        <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 relative list-none">
+            <!-- Étape 1 — Installation sur l'appareil de l'enfant -->
+            <li class="cp-card p-6 flex flex-col gap-4 relative">
                 <div class="flex items-center gap-3">
                     <span class="cp-step-number">1</span>
                     <span class="cp-icon-tile" style="width:2.5rem; height:2.5rem;">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
                     </span>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Téléchargez l'application</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Installez sur l'appareil de l'enfant</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Récupérez l'installateur depuis le site. Compatible Windows 10 et 11.
+                    Téléchargez l'agent depuis votre espace parent et installez-le sur l'ordinateur Windows utilisé par l'enfant.
                 </p>
-            </div>
-            <!-- Step 2 -->
-            <div class="cp-card p-6 flex flex-col gap-4 relative">
+            </li>
+            <!-- Étape 2 — Définition des règles -->
+            <li class="cp-card p-6 flex flex-col gap-4 relative">
                 <div class="flex items-center gap-3">
                     <span class="cp-step-number">2</span>
-                    <span class="cp-icon-tile" style="width:2.5rem; height:2.5rem;">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a6.759 6.759 0 010 1.255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-1.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </span>
-                </div>
-                <h3 class="font-heading text-lg font-bold text-white">Installez sur l'appareil</h3>
-                <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Lancez l'installateur sur le PC à protéger. Tout est pré-configuré.
-                </p>
-            </div>
-            <!-- Step 3 -->
-            <div class="cp-card p-6 flex flex-col gap-4 relative">
-                <div class="flex items-center gap-3">
-                    <span class="cp-step-number">3</span>
                     <span class="cp-icon-tile" style="width:2.5rem; height:2.5rem;">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path></svg>
                     </span>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Configurez les profils</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Définissez les règles dans votre espace parent</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Créez un profil par enfant et choisissez les règles adaptées à son âge.
+                    Créez un profil par enfant : horaires, catégories filtrées, temps autorisé. Les règles sont appliquées automatiquement.
                 </p>
-            </div>
-            <!-- Step 4 -->
-            <div class="cp-card p-6 flex flex-col gap-4 relative">
+            </li>
+            <!-- Étape 3 — Supervision -->
+            <li class="cp-card p-6 flex flex-col gap-4 relative">
                 <div class="flex items-center gap-3">
-                    <span class="cp-step-number">4</span>
+                    <span class="cp-step-number">3</span>
                     <span class="cp-icon-tile" style="width:2.5rem; height:2.5rem;">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"></path></svg>
                     </span>
                 </div>
-                <h3 class="font-heading text-lg font-bold text-white">Supervisez depuis votre mobile</h3>
+                <h3 class="font-heading text-lg font-bold text-white">Supervisez et ajustez à distance</h3>
                 <p class="text-sm text-[#aab7c9] leading-relaxed">
-                    Suivez et ajustez les règles depuis la console parents, où que vous soyez.
+                    Suivez l'usage, ajustez les règles et accordez du temps bonus depuis votre espace parent, depuis un ordinateur ou un mobile.
                 </p>
-            </div>
-        </div>
+            </li>
+        </ol>
     </section>
 
     <!-- Console Interactive Showcase -->
@@ -1258,7 +1142,7 @@
                     </span>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm text-white font-semibold">Filtrage DNS local</p>
-                        <p class="text-[11px] text-[#aab7c9]">430 000+ domaines connus, redirection au niveau OS</p>
+                        <p class="text-[11px] text-[#aab7c9]"><span data-cp-capability="filteredSitesLabel">430 000+</span> domaines connus, redirection au niveau OS</p>
                     </div>
                     <span class="cp-pill shrink-0 hidden sm:inline-flex"><span class="cp-live-dot" style="width:0.35rem; height:0.35rem;"></span> Actif</span>
                 </div>
@@ -1359,7 +1243,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section — accordéons natifs <details>/<summary> (accessibles clavier + lecteurs d'écran sans JS) -->
     <section id="faq" class="py-20 md:py-28 max-w-4xl mx-auto px-6 relative z-10">
         <div class="cp-section-heading">
             <span class="cp-eyebrow">
@@ -1374,110 +1258,131 @@
         </div>
 
         <div class="flex flex-col gap-4">
-            <!-- FAQ 1 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Comment installer ControleParental.icu ?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 1 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Sur quels appareils ControleParental.icu fonctionne-t-il&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        Téléchargez l'installateur depuis cette page, exécutez-le sur l'ordinateur à protéger (Windows 10 ou 11, 64 bits) et configurez le mot de passe parent. L'installation prend quelques minutes et ne nécessite pas de connaissances techniques particulières.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    L'agent à installer sur l'ordinateur de l'enfant est conçu pour <strong>Windows 10 et 11</strong> (64 bits).
+                    L'espace parent, lui, est accessible depuis n'importe quel ordinateur, smartphone ou tablette via un navigateur web — il s'installe aussi comme une app sur iPhone et Android (PWA).
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 2 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Mon enfant peut-il désinstaller la protection&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 2 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Faut-il un compte pour utiliser l'application&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        L'application s'exécute en tant que service Windows et est accompagnée d'un Watchdog qui la relance automatiquement en cas d'arrêt. Une session utilisateur standard ne peut pas la désinstaller sans le mot de passe défini par le parent. Cela garantit la continuité de la protection.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Oui, vous créez un <strong>espace parent</strong> gratuit avec votre adresse email. Il sert à télécharger l'agent, à associer vos appareils enfants et à modifier vos règles à distance.
+                    Aucune donnée publicitaire n'est collectée à cette occasion.
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 3 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Comment fonctionne la console parents&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 3 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Comment fonctionne le filtrage de contenu&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        La console parent est accessible depuis un navigateur (ordinateur, iPhone, Android) sur <strong>app.controleparental.icu</strong>. Vous vous y connectez avec votre compte et retrouvez vos appareils enfants, vos profils et vos règles. En mode local, vous pouvez aussi vous connecter directement à l'agent sur votre réseau Wi-Fi sans passer par Internet.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Le filtrage s'effectue <strong>localement</strong> sur l'ordinateur de l'enfant, au niveau du système d'exploitation. Il s'appuie sur des listes communautaires (Block&nbsp;List&nbsp;Project, OISD, Hagezi) que vous activez par catégorie, et que vous pouvez compléter avec vos propres mots-clés ou domaines.
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 4 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Mon enfant peut-il contourner le filtrage avec un VPN&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 4 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Puis-je définir des règles différentes pour chaque enfant&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        ControleParental.icu bloque l'exécution des principaux clients VPN et navigateurs Tor connus, sur la base d'une liste maintenue côté agent. Aucun outil de contrôle parental ne couvre toutefois 100 % des contournements possibles : l'application est un cadre qui accompagne le dialogue parent-enfant, pas un dispositif de surveillance infaillible.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Oui. Chaque enfant peut avoir son propre profil avec ses horaires, ses catégories filtrées et ses limites de temps d'écran.
+                    Les règles s'ajustent à l'âge et au niveau d'autonomie, et peuvent évoluer dans le temps.
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 5 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Le filtrage ralentit-il la connexion internet&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 5 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Mon enfant peut-il contourner les règles&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        Non. Le filtrage s'effectue localement, au niveau du système d'exploitation, sans passer par un proxy distant. La surcharge réseau est nulle et la navigation reste fluide pour les contenus autorisés.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    L'application bloque les principaux clients VPN et navigateurs Tor connus, et l'agent s'exécute en tant que service Windows protégé par votre mot de passe parent.
+                    Aucun outil ne couvre cependant 100 % des contournements possibles : ControleParental.icu est un <strong>cadre qui accompagne le dialogue</strong>, pas un dispositif de surveillance infaillible.
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 6 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Les données de ma famille sont-elles sécurisées&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 6 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>L'application est-elle vraiment gratuite&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        Les communications entre la console parents et l'agent installé sur le PC de l'enfant sont chiffrées (échange de clés ECDH + AES-256). Aucune donnée d'écran ou d'activité n'est envoyée vers un serveur cloud externe : tout reste entre vos appareils.
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Oui. <strong>0 € à vie</strong>, pour toutes les fonctionnalités. Pas d'essai à durée limitée, pas de version premium, pas de paywall caché.
+                    Le projet est financé personnellement par son créateur et offert aux familles.
                 </div>
-            </div>
+            </details>
 
-            <!-- FAQ 7 -->
-            <div class="cp-card overflow-hidden faq-item">
-                <button class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus:outline-none cursor-pointer faq-trigger" aria-expanded="false">
-                    <span>Quels systèmes sont compatibles&nbsp;?</span>
-                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- 7 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Mes données sont-elles vendues à des tiers&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
                     </svg>
-                </button>
-                <div class="faq-content max-h-0 overflow-hidden">
-                    <p class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
-                        L'agent s'installe sur <strong>Windows 10</strong> ou <strong>Windows 11</strong> (64 bits). La console parents fonctionne dans n'importe quel navigateur récent (smartphone, tablette ou ordinateur).
-                    </p>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Non. Vos données ne sont jamais revendues, louées ou utilisées à des fins publicitaires.
+                    Les échanges entre l'espace parent et l'agent installé sur le PC enfant sont chiffrés (ECDH&nbsp;+&nbsp;AES-256) et l'hébergement reste en France.
                 </div>
-            </div>
+            </details>
+
+            <!-- 8 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>Comment supprimer mes données&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Vous pouvez à tout moment supprimer un profil enfant ou la totalité de votre espace parent depuis les paramètres de votre compte.
+                    Pour toute demande RGPD (export, suppression définitive), écrivez à
+                    <a href="mailto:contact@controleparental.icu" class="text-[#48b7ff] hover:underline">contact@controleparental.icu</a>.
+                </div>
+            </details>
+
+            <!-- 9 -->
+            <details class="cp-card overflow-hidden faq-item group">
+                <summary class="w-full px-6 py-5 text-left font-heading font-semibold text-white hover:text-[#48b7ff] flex justify-between items-center transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#48b7ff] cursor-pointer list-none">
+                    <span>L'application remplace-t-elle le dialogue avec mon enfant&nbsp;?</span>
+                    <svg class="w-5 h-5 text-[#aab7c9] transform transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                    </svg>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-[#d7e0ec] leading-relaxed">
+                    Non, et ce n'est pas son objectif. ControleParental.icu fournit un <strong>cadre clair</strong> — règles, horaires, filtrages — qui sert de support à la conversation familiale.
+                    Les meilleurs résultats viennent quand les enfants comprennent pourquoi les règles existent, plutôt que de simplement les subir.
+                </div>
+            </details>
         </div>
     </section>
 
