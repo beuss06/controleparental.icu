@@ -1616,7 +1616,23 @@
     <script src="app.js?v=20260616-3"></script>
     <script>
     (function () {
+        // Le téléchargement nécessite désormais un compte parent (capture
+        // de l'email + association des appareils enfants). On redirige
+        // vers la console SaaS qui gate /console/download via login/signup.
+        var DOWNLOAD_URL = 'https://app.controleparental.icu/console/download';
+        function goToDownload(e) { if (e) e.preventDefault(); window.location.href = DOWNLOAD_URL; }
+        document.querySelectorAll('[data-download]').forEach(function (el) {
+            el.setAttribute('href', DOWNLOAD_URL);
+            el.addEventListener('click', goToDownload);
+        });
+
+        // L'ancien modal email reste dans le DOM mais n'est plus déclenché.
+        // Stubs no-op pour rester compatible si un script externe l'appelle.
         var modal = document.getElementById('dl-modal');
+        if (modal && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+        function open(e) { goToDownload(e); }
+        function close() { if (modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; } }
+
         var form = document.getElementById('dl-form');
         var emailInput = document.getElementById('dl-email');
         var errEl = document.getElementById('dl-error');
@@ -1625,11 +1641,6 @@
         var successEl = document.getElementById('dl-success');
         var manualLink = document.getElementById('dl-manual');
         var lastActive = null;
-
-        function open(e) { if (e) e.preventDefault(); lastActive = document.activeElement; modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; setTimeout(function () { emailInput.focus(); }, 50); }
-        function close() { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; if (lastActive) lastActive.focus(); }
-
-        document.querySelectorAll('[data-download]').forEach(function (el) { el.addEventListener('click', open); });
         document.getElementById('dl-close').addEventListener('click', close);
         document.getElementById('dl-overlay').addEventListener('click', close);
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
